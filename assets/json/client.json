@@ -1,0 +1,26 @@
+{
+  "legalName": "AURA Sites v0.9",
+  "abn": "XX XXX XXX XXX",
+  "phone": "XXXX XXX XXX",
+  "fax": "(08) XXX XXXX",
+  "address": {
+      "street": "-",
+      "suburb": "Adelaide",
+      "state": "SA",
+      "postcode": 0
+  },
+  "serviceArea": {
+      "km": 25,
+      "surrounding": "Adelaide CBD"
+  },
+  "hours": [
+      "Monday - Friday 7:00am - 5:00pm"
+  ],
+  "hoursFootnote": "",
+  "contactPitch": "Contact us for a quote. Call or email today",
+  "pageTitle": "AURA Sites",
+  "plusUrl": "https://plus.google.com/",
+  "plusHandle": "Not set",
+  "mapsUrl": "https://www.google.com/maps/place/AURA Sites",
+  "captcha": "6LfE_vQSAAAAAJDd6TLbEyz2wSCsBhTWd0VJCGyT"
+}

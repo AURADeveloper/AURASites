@@ -1,0 +1,117 @@
+.div-center {
+  margin: auto;
+  width: 75%;
+}
+header {
+  background-color: #fff;
+}
+header .container .row {
+  padding: 6px 0;
+}
+.page-header {
+  margin: 0 0 10px;
+}
+.navbar {
+  font-size: 18px;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.quote-section {
+  font-size: 24px;
+  text-align: center;
+  padding: 6px 12px;
+  background: #999999;
+  margin-bottom: 20px;
+  color: #FFFFFF;
+}
+.quote-section em {
+  color: #E81E25;
+}
+a.list-group-item {
+  min-height: 190px;
+}
+a.list-group-item .active small {
+  color: #fff;
+}
+.quote-btn {
+  margin-top: 60px;
+}
+.quote-text {
+  margin-top: 20px;
+}
+.footer-section {
+  background: #F0F0F0;
+  margin-bottom: 20px;
+}
+.footer-section h3 {
+  margin-top: 10px;
+}
+.sitemap {
+  margin-bottom: 20px;
+}
+.input-group-addon.success {
+  border-color: #e6d300;
+  background-color: #048422;
+  color: #444444;
+}
+.btn-primary {
+  color: #FFFFFF;
+  background-color: #999999;
+  border-color: #e6d300;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: #FFFFFF;
+  background-color: #444444;
+  border-color: #a89b00;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+  background-color: #048422;
+  border-color: #e6d300;
+}
+.btn-primary .badge {
+  color: #ffeb00;
+  background-color: #444444;
+}
+.well{
+    margin-bottom: 40px;
+}
+
+.list-group{
+    margin-bottom: 0px;
+}
+
+@media all and (min-width: 768px) {
+    .services .row {
+        height: 100%;
+        display: table-row;
+    }
+
+    .services .row .col-md-3, .services .row .col-md-6 {
+        display: table-cell;
+        float: none;
+        vertical-align: middle;
+    }
+}

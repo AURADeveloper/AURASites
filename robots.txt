@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /assets/
+Disallow: /bower_components/
+Disallow: /partials/
+Disallow: /bower.json
+Disallow: /composer.json
+Disallow: /googlebc0afa9a3a775dd8.html
+Disallow: /mailer.php
+Disallow: /README.md
+Disallow: /robots.txt
+Disallow: /Sitemap.txt

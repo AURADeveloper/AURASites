@@ -1,0 +1,6 @@
+{
+  "require": {
+    "phpmailer/phpmailer": "v5.2.8",
+    "captcha/recaptcha": "1.11.x-dev"
+  }
+}
