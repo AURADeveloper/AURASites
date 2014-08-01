@@ -24,23 +24,22 @@ header .container .row {
   margin-bottom: 20px;
   color: #FFFFFF;
 }
-.quote-section em {
-  color: #E81E25;
-}
+
 a.list-group-item {
   min-height: 190px;
 }
 a.list-group-item .active small {
-  color: #fff;
+    color: #fff;
 }
 .quote-btn {
-  margin-top: 60px;
+    margin-top: 60px;
 }
 .quote-text {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 .footer-section {
   background: #F0F0F0;
+  margin-top: 25px;
   margin-bottom: 20px;
 }
 .footer-section h3 {
@@ -50,14 +49,14 @@ a.list-group-item .active small {
   margin-bottom: 20px;
 }
 .input-group-addon.success {
-  border-color: #e6d300;
+  border-color: #000000;
   background-color: #048422;
   color: #444444;
 }
 .btn-primary {
   color: #FFFFFF;
-  background-color: #999999;
-  border-color: #e6d300;
+  background-color: #888888;
+  border-color: #FFFFFF;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -66,7 +65,7 @@ a.list-group-item .active small {
 .open .dropdown-toggle.btn-primary {
   color: #FFFFFF;
   background-color: #444444;
-  border-color: #a89b00;
+  border-color: #888888;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -89,14 +88,14 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
   background-color: #048422;
-  border-color: #e6d300;
+  border-color: #888888;
 }
 .btn-primary .badge {
   color: #ffeb00;
   background-color: #444444;
 }
 .well{
-    margin-bottom: 40px;
+    margin-bottom: 0px;
 }
 
 .list-group{
@@ -115,3 +114,4 @@ fieldset[disabled] .btn-primary.active {
         vertical-align: middle;
     }
 }
+

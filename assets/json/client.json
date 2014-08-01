@@ -4,10 +4,10 @@
   "phone": "XXXX XXX XXX",
   "fax": "(08) XXX XXXX",
   "address": {
-      "street": "-",
-      "suburb": "Adelaide",
-      "state": "SA",
-      "postcode": 0
+      "street": "Address Line",
+      "suburb": "Suburb",
+      "state": "State",
+      "postcode": 5000
   },
   "serviceArea": {
       "km": 25,

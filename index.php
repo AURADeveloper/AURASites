@@ -10,6 +10,10 @@
 
     $business = json_decode(file_get_contents('assets/json/client.json'), TRUE);
     $layout = json_decode(file_get_contents('assets/json/layout.json'), TRUE);
+
+    $path = ltrim($_SERVER['REQUEST_URI'], '/');
+    $elements = explode('/', $path);
+    $active = count($elements) == 0 ? '' : strtolower(array_shift($elements));
 ?>
 
 <!DOCTYPE html>
@@ -48,22 +52,27 @@
     <header role="banner">
         <div class="container">
             <div class="row">
-                <div class="col-xs-6"><h1>AURA Sites v0.9</h1>
-<!--                    <a href="#"><img src="assets/img/hardyards-logo-web.png"></a>-->
-                </div>
                 <div class="col-xs-6">
-<!--                    <img class="pull-right" src="assets/img/aaa-head-splash.png">-->
+                    <h1>AURA Sites v0.9</h1>
+<!--                    <img class="pull-left" src="assets/img/aaa-head-splash.png">-->
                 </div>
-            </div>
-        </div>
+                <div class="col-xs-6 hidden-xs">
+                    <div class="pull-right">
+                    <h3>Ph. XXXX XXXX</h3>
+<!--                    <img class="pull-right" src="assets/img/aaa-head-splash.png">-->
+                    </div>
+                </div>
+             </div>
+         </div>
     </header>
+
+
 
     <!-- Responsive Nav ================================================== -->
 	<nav class="navbar navbar-inverse" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                data-target="#header-navbar-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -74,25 +83,24 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="header-navbar-collapse">
                 <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li><a href="samples">Samples</a></li>
-                <li><a href="services">Services</a></li>
-                <li><a href="about">About</a></li>
-                <li><a href="location">Location</a></li>
-                <li><a href="contact">Contact</a></li>
+                <li<?php echo $active == '' ? ' class="active"' : ''; ?>><a href="/">Home</a></li>
+                <li<?php echo $active == 'samples' ? ' class="active"' : ''; ?>><a href="samples">Samples</a></li>
+                <li<?php echo $active == 'services' ? ' class="active"' : ''; ?>><a href="services">Services</a></li>
+                <li<?php echo $active == 'about' ? ' class="active"' : ''; ?>><a href="about">About</a></li>
+                <li<?php echo $active == 'location' ? ' class="active"' : ''; ?>><a href="location">Location</a></li>
+                <li<?php echo $active == 'contact' ? ' class="active"' : ''; ?>><a href="contact">Contact</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
+
         </div>
 	</nav>
-    
+
+
+
     <!--  Content Module ================================================== -->
     <?php
-        $path = ltrim($_SERVER['REQUEST_URI'], '/');
-        $elements = explode('/', $path);
-        if(count($elements) == 0)
-            include "partials/home.html";
-        else switch (strtolower(array_shift($elements))) {
+        switch ($active) {
             case "samples":
                 include "partials/samples.html";
                 break;
