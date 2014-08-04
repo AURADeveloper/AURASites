@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     $page_components = [
         "FOOTER" => [
             "BUSINESS_DETAILS" => "partials/includes/footer/businessDetails.php",
@@ -108,7 +110,7 @@
                 include "partials/about.html";
                 break;
             case "contact":
-                include "partials/contact.html";
+                include "partials/contact.php";
                 break;
             case "location":
                 include "partials/location.html";

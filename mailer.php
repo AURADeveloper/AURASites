@@ -9,8 +9,8 @@ $privateKey = '6LfE_vQSAAAAAHr_aoWQs_vhNwgLv8fPqWFvJcMX';
 $senderName = $_GET['name'];
 $senderEmail = $_GET['email'];
 $senderMessage = $_GET['message'];
-$challenge = $_GET['challenge'];
-$response = $_GET['response'];
+$challenge = $_GET['recaptcha_challenge_field'];
+$response = $_GET['recaptcha_response_field'];
 
 // Check the recaptcha challenge was correct
 $resp = recaptcha_check_answer($privateKey,
@@ -18,13 +18,19 @@ $resp = recaptcha_check_answer($privateKey,
                                $challenge,
                                $response);
 
+session_start();
+
 if (!$resp->is_valid) {
-    header("HTTP/1.1 400 Bad Request", true, 400);
-    echo ('The reCAPTCHA wasn\'t entered correctly, please try again.');
+    $_SESSION['name'] = $_GET['name'];
+    $_SESSION['email'] = $_GET['email'];
+    $_SESSION['message'] = $_GET['message'];
+    $_SESSION['success'] = false;
+    $_SESSION['bad_recaptcha'] = true;
+    header('Location: contact');
 } else {
     $mail = new PHPMailer;
     $mail->IsSMTP();
-    $mail->SMTPDebug = 1;
+    $mail->SMTPDebug = 0;
     $mail->SMTPAuth = true;
     $mail->SMTPSecure = 'ssl';
     $mail->Host = "smtp.gmail.com";
@@ -45,9 +51,18 @@ if (!$resp->is_valid) {
     $mail->AltBody = $senderMessage;
 
     if(!$mail->send()) {
-        header("HTTP/1.1 500 Internal Error", true, 500);
-        echo 'Message could not be sent. '. $mail->ErrorInfo;
+        $_SESSION['name'] = $_GET['name'];
+        $_SESSION['email'] = $_GET['email'];
+        $_SESSION['message'] = $_GET['message'];
+        $_SESSION['success'] = false;
+        $_SESSION['bad_recaptcha'] = false;
+        header('Location: contact');
     } else {
-        echo 'Message has been sent.';
+        $_SESSION['name'] = "";
+        $_SESSION['email'] = "";
+        $_SESSION['message'] = "";
+        $_SESSION['success'] = true;
+        $_SESSION['bad_recaptcha'] = false;
+        header('Location: contact');
     }
 }

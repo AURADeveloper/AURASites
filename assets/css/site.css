@@ -115,3 +115,6 @@ fieldset[disabled] .btn-primary.active {
     }
 }
 
+.bg {
+  padding: 15px;
+}
