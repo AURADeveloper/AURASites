@@ -97,10 +97,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 <?php echo $this->fetch('content'); ?>
 
-<div class="footer-section">
-
+<footer>
     <div class="container">
-
         <div class="row">
             <div class="col-lg-12">
 <!--                <div class="col-sm-4">-->
@@ -114,10 +112,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <!--                </div>-->
             </div>
         </div>
-
     </div>
-
-</div>
+</footer>
 <div class="sitemap">
     <div class="container">
         <div class="row">

@@ -11,7 +11,9 @@
                 </div>
                 <div class="col-sm-6">
                     We build on..
-                    <?php echo $this->HTML->image('google-logo.png', array('class' => 'img-responsive')); ?>
+                    <div class="center-block google-logo">
+                        <?php echo $this->HTML->image('google-logo.png', array('class' => 'img-responsive')); ?>
+                    </div>
                     <span class="pull-right">
                         Aura Access is a
                         <a href="http://www.google.com.au/partners" target="_blank">Google Partner</a>
