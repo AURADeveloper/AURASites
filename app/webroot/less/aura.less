@@ -1,0 +1,58 @@
+@import "variables.less";
+@import "mixins.less";
+
+@alt-text: #f7f7f7;
+@aura-blue: #0089C9;
+@glass-color: rgba(0,0,0,0.625);
+
+header {
+  background-color: @aura-blue;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.nav {
+  font-size: @font-size-large;
+}
+
+.page_banner {
+  background-image: url('../img/page_banner.jpg');
+  background-position: center;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-color: #111;
+
+  color: @alt-text;
+
+  .well {
+    margin-top: 20px;
+    background-color: @glass-color;
+    border: 1px solid #888;
+
+    .h2 {
+
+    }
+  }
+}
+
+.slogan {
+  background-color: @aura-blue;
+  min-height: 50px;
+  margin-bottom: 20px;
+  padding: @nav-link-padding;
+
+  .phrase {
+    text-align: center;
+    color: @alt-text;
+    font-size: @font-size-large;
+    width: 100%;
+  }
+
+}
+
+.services {
+  .service-icon {
+    width: 100%;
+    font-size: 96px;
+  }
+}
