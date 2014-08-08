@@ -32,11 +32,4 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-    /**
-     * @return bool
-     */
-    public function hasImageLogo() {
-        return file_exists(WWW_ROOT . 'img' . DS . 'logo.png');
-    }
-
 }

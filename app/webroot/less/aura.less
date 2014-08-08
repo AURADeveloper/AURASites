@@ -1,26 +1,38 @@
-@import "variables.less";
-@import "mixins.less";
+@import "../bower_components/bootstrap/less/variables.less";
+@import "../bower_components/bootstrap/less/mixins.less";
 
-@alt-text: #f7f7f7;
-@aura-blue: #0089C9;
+@alt-text: #fff;
 @glass-color: rgba(0,0,0,0.625);
 
+/*
+ The top most banner containing the logo and business address
+ */
 header {
-  background-color: @aura-blue;
+  background-color: @brand-primary;
   padding-top: 20px;
   padding-bottom: 20px;
+  color: @alt-text;
+
+  address {
+    margin-bottom: 0;
+  }
 }
 
+/*
+ The navigation bar
+ */
 .nav {
   font-size: @font-size-large;
 }
 
-.page_banner {
+/*
+ The cover image has a large photo background with a information container
+ */
+.cover_image {
   background-image: url('../img/page_banner.jpg');
   background-position: center;
   background-size: auto;
   background-repeat: no-repeat;
-  background-color: #111;
 
   color: @alt-text;
 
@@ -39,24 +51,40 @@ header {
   }
 }
 
+/*
+ A thin banner situated below the image that contains a line of text
+ */
 .slogan {
-  background-color: @aura-blue;
+  background-color: @brand-primary;
   min-height: 50px;
   margin-bottom: 20px;
   padding: @nav-link-padding;
 
-  .phrase {
+  div {
     text-align: center;
     color: @alt-text;
     font-size: 20px;
     width: 100%;
   }
 
+  a {
+    color: #fff;
+  }
+
+  a:hover {
+    color: #eee;
+  }
 }
 
-.services {
-  .service-icon {
-    width: 100%;
-    font-size: 96px;
+
+.quick_links {
+  background-color: @well-bg;
+
+  > div {
+    padding-top: 20px;
   }
+}
+
+footer {
+  margin-top: 20px;
 }

@@ -1,10 +1,10 @@
 <IfModule mod_rewrite.c>
     RewriteEngine on
 
-    RewriteCond %{ENV:REDIRECT_END}  =1
-    RewriteRule ^                    -                    [L]
+    #RewriteCond %{ENV:REDIRECT_END}  =1
+    #RewriteRule ^                    -                    [L]
 
-    RewriteRule    ^(.*)bower_components/(.*) bower_components/$2 [L,E=END:1]
+    #RewriteRule    ^(.*)bower_components/(.*) bower_components/$2 [L,E=END:1]
     RewriteRule    ^$ app/webroot/    [L]
     RewriteRule    (.*) app/webroot/$1 [L]
 </IfModule>

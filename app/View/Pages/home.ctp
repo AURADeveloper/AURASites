@@ -1,4 +1,4 @@
-<article class="page_banner">
+<section class="cover_image">
     <div class="container">
         <div class="well">
             <div class="row">
@@ -6,7 +6,10 @@
                     <h2>What we can do for you:</h2>
                     <ul>
                         <li>Establish web presence for your business</li>
-                        <li></li>
+                        <li>Build a website fast, tailored to your market</li>
+                        <li>Reach out to new customers through AdWords campaigns</li>
+                        <li>Customized, e-commerce and business solutions</li>
+                        <li>Long term, future proof and cost effective</li>
                     </ul>
                 </div>
                 <div class="col-sm-6">
@@ -22,21 +25,15 @@
             </div>
         </div>
     </div>
-</article>
+</section>
 
 <section class="slogan">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="phrase">
-                    If you cannot find your business on <a href="http://www.google.com.au" target="_blank">Google</a>, <strong>Contact Us</strong> today!
-                </div>
-            </div>
-        </div>
+        If you cannot find your business on <a href="http://www.google.com.au" target="_blank">Google</a>, <strong>Contact Us</strong> today!
     </div>
 </section>
 
-<section class="services">
+<section class="portal">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-4">

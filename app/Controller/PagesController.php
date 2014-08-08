@@ -19,6 +19,7 @@
  */
 
 App::uses('AppController', 'Controller');
+App::uses('Client', 'Model');
 
 /**
  * Static content controller
@@ -30,21 +31,16 @@ App::uses('AppController', 'Controller');
  */
 class PagesController extends AppController {
 
-/**
- * This controller does not use a model
- *
- * @var array
- */
-	public $uses = array();
+	public $uses = array('Business');
 
-/**
- * Displays a view
- *
- * @param mixed What page to display
- * @return void
- * @throws NotFoundException When the view file could not be found
- *	or MissingViewException in debug mode.
- */
+    /**
+     * Displays a view
+     *
+     * @param mixed What page to display
+     * @return void
+     * @throws NotFoundException When the view file could not be found
+     * @throws MissingViewException in debug mode.
+     */
 	public function display() {
 		$path = func_get_args();
 
@@ -64,9 +60,13 @@ class PagesController extends AppController {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
 
-        $has_logo_image = $this->hasImageLogo();
+        $businesses = $this->Business->find('first', array(
+            'conditions' => array('Business.id' => 1)
+        ));
 
-		$this->set(compact('page', 'subpage', 'title_for_layout', 'has_logo_image'));
+        $business = $businesses['Business'];
+
+		$this->set(compact('page', 'subpage', 'title_for_layout', 'business'));
 
 		try {
 			$this->render(implode('/', $path));
