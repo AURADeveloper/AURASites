@@ -12,13 +12,17 @@ html, body {
 }
 
 header {
-  margin-top: 10px;
-  margin-bottom: 10px;
   margin-left: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 72px;
+  background-color: #fff;
+  z-index: 1000;
+  width: 100%;
 
   img {
     display: inline-block;
-
   }
 
   h1 {
@@ -29,11 +33,9 @@ header {
 }
 
 nav {
-  float: left;
-  width: 224px;
-  max-width: 224px;
   margin-left: 10px;
   margin-right: 10px;
+  color: #eee;
 
   h1 {
     margin: 5px 0 0;
@@ -47,17 +49,85 @@ nav {
 }
 
 main {
-  float: left;
-  margin-left: 10px;
+  width: 100%;
 
   h1 {
     margin: 0 0 10px;
   }
-
 }
 
 form {
-  div {
+  .control-group {
+    padding: 0 15px;
+  }
+}
 
+#wrapper {
+  padding-top: 72px;
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+  padding-left: 250px;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background-color: #000;
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  width: 250px;
+}
+
+#content-wrapper {
+  width: 100%;
+
+}
+
+#wrapper.toggled #content-wrapper {
+  position: absolute;
+  margin-right: -250px;
+}
+
+@media(min-width:768px) {
+  #wrapper {
+    padding-left: 250px;
+  }
+
+  #wrapper.toggled {
+    padding-left: 0;
+  }
+
+  #sidebar-wrapper {
+    width: 250px;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    width: 0;
+  }
+
+  #content-wrapper {
+
+  }
+
+  #wrapper.toggled #content-wrapper {
+    position: relative;
+    margin-right: 0;
   }
 }

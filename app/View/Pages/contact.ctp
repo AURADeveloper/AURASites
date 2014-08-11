@@ -66,7 +66,7 @@
         <button class="btn btn-primary pull-right">SUBMIT</button>
 
         <?php
-          require_once('vendor/captcha/recaptcha/recaptcha/recaptchalib.php');
+          //require_once('vendor/captcha/recaptcha/recaptcha/recaptchalib.php');
           $publickey = "6LfE_vQSAAAAAJDd6TLbEyz2wSCsBhTWd0VJCGyT";
           echo recaptcha_get_html($publickey);
         ?>

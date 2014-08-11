@@ -25,8 +25,8 @@
     echo $this->Html->meta('icon');
 
     if (Configure::read('debug')) {
-        echo $this->Html->tag('link', null, array('rel' => 'stylesheet/less', 'text' => 'text/css', 'href' => 'less/admin.less'));
-        echo $this->Html->tag('link', null, array('rel' => 'stylesheet/less', 'text' => 'text/css', 'href' => 'less/bootstrap.less'));
+        echo $this->Html->css('../less/bootstrap.less?', array('rel' => 'stylesheet/less'));
+        echo $this->Html->css('../less/admin.less?', array('rel' => 'stylesheet/less'));
         echo $this->Html->script('../bower_components/less/dist/less-1.7.3');
     } else {
         echo $this->Html->css('bootstrap');
@@ -37,6 +37,7 @@
 
     echo $this->Html->script('../bower_components/jquery/dist/jquery');
     echo $this->Html->script('../bower_components/bootstrap/dist/js/bootstrap');
+    echo $this->Html->script('../bower_components/JSColor/jscolor');
     echo $this->Html->script('holder');
 
     echo $this->fetch('meta');
@@ -45,26 +46,38 @@
     ?>
 </head>
 <body>
-<header>
+<header id="header">
     <?php echo $this->Html->image('logo-black.png', array('class', 'inline-image')); ?>
     <h1>Site Builder</h1>
 </header>
-<nav>
-    <h1>General</h1>
-    <ul>
-        <li>Business Details</li>
-        <li>Images & Style</li>
-    </ul>
-    <h1>Content</h1>
-    <ul>
-        <li>Home</li>
-        <li>Services</li>
-        <li>About</li>
-    </ul>
-</nav>
-<main>
-    <?php echo $this->fetch('content'); ?>
-</main>
-
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+        <nav id="nav">
+            <h1>General</h1>
+            <ul>
+                <li><?php echo $this->Html->link('Business Details', array('admin' => true, 'controller' => 'business', 'action' => 'edit')); ?></li>
+                <li><?php echo $this->Html->link('Style', array('admin' => true, 'controller' => 'style', 'action' => 'edit')); ?></li>
+            </ul>
+            <h1>Content</h1>
+            <ul>
+                <li>Home</li>
+                <li>Services</li>
+                <li>About</li>
+            </ul>
+        </nav>
+    </div>
+    <div id="content-wrapper">
+        <main id="main">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <?php echo $this->fetch('content'); ?>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<?php //echo $this->Html->script('resize.js'); ?>
 </body>
 </html>

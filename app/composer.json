@@ -2,6 +2,7 @@
   "require": {
     "phpmailer/phpmailer": "v5.2.8",
     "captcha/recaptcha": "1.11.x-dev",
-    "cakephp/cakephp": "2.5.3"
+    "cakephp/cakephp": "2.5.3",
+    "leafo/lessphp": "v0.4.0"
   }
 }

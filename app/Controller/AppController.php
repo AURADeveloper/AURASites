@@ -32,4 +32,8 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
+    public function beforeFilter() {
+        $this->client_id = Configure::read('Client.id');
+    }
+
 }

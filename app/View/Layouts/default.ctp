@@ -117,7 +117,7 @@
             <div class="col-xs-6 text-right">
                 <strong>Offers + Updates</strong>
                 <ul class="list-unstyled">
-                    <?php if (!is_null($business['social_plus'])) { ?>
+                    <?php if (!empty($business['social_plus'])) { ?>
                     <li>
                         <i class="fa fa-google-plus"></i>
                         <a href="http://plus.google.com/+<?php echo $business['social_plus']; ?>/">
@@ -125,7 +125,7 @@
                         </a>
                     </li>
                     <?php } ?>
-                    <?php if (!is_null($business['social_facebook'])) { ?>
+                    <?php if (!empty($business['social_facebook'])) { ?>
                     <li>
                         <i class="fa fa-facebook"></i>
                         <a href="http://www.facebook.com/<?php echo $business['social_facebook']; ?>/">
@@ -133,7 +133,7 @@
                         </a>
                     </li>
                     <?php } ?>
-                    <?php if (!is_null($business['social_twitter'])) { ?>
+                    <?php if (!empty($business['social_twitter'])) { ?>
                     <li>
                         <i class="fa fa-twitter"></i>
                         <a href="http://www.twitter.com/<?php echo $business['social_twitter']; ?>/">

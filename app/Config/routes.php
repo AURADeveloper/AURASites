@@ -34,7 +34,8 @@
     Router::connect('/samples', array('controller' => 'pages', 'action' => 'display', 'samples'));
     Router::connect('/services', array('controller' => 'pages', 'action' => 'display', 'services'));
 
-    Router::connect('/admin', array('controller' => 'admin', 'action' => 'display', 'adminHome'));
+    Router::connect('/admin', array('controller' => 'business', 'action' => 'index', 'admin' => true));
+
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
