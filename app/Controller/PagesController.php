@@ -31,7 +31,7 @@ App::uses('Client', 'Model');
  */
 class PagesController extends AppController {
 
-	public $uses = array('Business');
+	public $uses = array('Business', 'Style');
 
     /**
      * Displays a view
@@ -60,13 +60,12 @@ class PagesController extends AppController {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
 
-        $businesses = $this->Business->find('first', array(
-            'conditions' => array('Business.id' => 1)
-        ));
+        $business = $this->Business->findById($this->client_id);
+        $business = $business['Business'];
+        $style = $this->Style->findById($this->client_id);
+        $style = $style['Style'];
 
-        $business = $businesses['Business'];
-
-		$this->set(compact('page', 'subpage', 'title_for_layout', 'business'));
+		$this->set(compact('page', 'subpage', 'title_for_layout', 'business', 'style'));
 
 		try {
 			$this->render(implode('/', $path));

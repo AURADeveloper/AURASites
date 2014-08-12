@@ -51,22 +51,25 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <?php
-                $logo_file = WWW_ROOT . 'img' . DS . 'logo.png';
-                if (file_exists($logo_file)) {
-                    echo $this->Html->image('logo.png', array('alt' => $business['trading_name']));
+                if (!empty($style['img_logo'])) {
+                    echo $this->Html->image($style['img_logo'], array('alt' => $business['trading_name'], 'class' => 'img-responsive'));
                 } else {
                     echo $this->Html->tag('h1', $business['trading_name']);
                 }
                 ?>
             </div>
-            <div class="hidden-xs col-sm-6 text-right">
-
+            <div class="hidden-xs col-sm-6">
+                <?php
+                if (!empty($style['img_logo_bang'])) {
+                    echo $this->Html->image($style['img_logo_bang'], array('alt' => $business['trading_name'], 'class' => 'img-responsive pull-right'));
+                }
+                ?>
             </div>
         </div>
     </div>
 </header>
 
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar navbar-inverse clearfix" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-navbar-collapse">

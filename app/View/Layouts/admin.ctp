@@ -25,11 +25,11 @@
     echo $this->Html->meta('icon');
 
     if (Configure::read('debug')) {
-        echo $this->Html->css('../less/bootstrap.less?', array('rel' => 'stylesheet/less'));
+        echo $this->Html->css('../less/bootstrap-admin.less?', array('rel' => 'stylesheet/less'));
         echo $this->Html->css('../less/admin.less?', array('rel' => 'stylesheet/less'));
         echo $this->Html->script('../bower_components/less/dist/less-1.7.3');
     } else {
-        echo $this->Html->css('bootstrap');
+        echo $this->Html->css('bootstrap-admin');
         echo $this->Html->css('admin');
     }
 
