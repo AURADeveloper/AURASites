@@ -32,6 +32,16 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
+    public $bootstrap_form_options = array(
+        'class' => 'form-horizontal',
+        'inputDefaults' => array(
+        'div' => 'form-group',
+            'class' => 'form-control',
+            'between' => '<div class="col-sm-10">',
+            'after' => '</div>',
+            'label' => array(
+                'class' => 'col-sm-2 control-label')));
+
     public function beforeFilter() {
         $this->client_id = Configure::read('Client.id');
     }

@@ -38,7 +38,9 @@
     echo $this->Html->script('../bower_components/jquery/dist/jquery');
     echo $this->Html->script('../bower_components/bootstrap/dist/js/bootstrap');
     echo $this->Html->script('../bower_components/JSColor/jscolor');
+    echo $this->Html->script('../bower_components/ckeditor/ckeditor');
     echo $this->Html->script('holder');
+    echo $this->Html->script('admin');
 
     echo $this->fetch('meta');
     echo $this->fetch('css');
@@ -60,7 +62,7 @@
             </ul>
             <h1>Content</h1>
             <ul>
-                <li>Home</li>
+                <li><?php echo $this->Html->link('Home', array('admin' => true, 'controller' => 'home', 'action' => 'edit')); ?></li>
                 <li>Services</li>
                 <li>About</li>
             </ul>
@@ -78,6 +80,5 @@
         </main>
     </div>
 </div>
-<?php //echo $this->Html->script('resize.js'); ?>
 </body>
 </html>

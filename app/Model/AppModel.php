@@ -30,4 +30,46 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+
+    /**
+     * Handles a image upload.
+     *
+     * If the field has been set, its checks that the file was uploaded
+     * without error. If there was, the field is unset and silently fails.
+     *
+     * Otherwise, the image is moved to its home under the provided filename
+     * (WEBROOT_DIR/img/FILE_NAME) and assigns the filename to the model field.
+     *
+     * @param $source array The model containing the image attribute
+     * @param $field string The model attribute containing the file meta
+     */
+    function handleImageUpload(&$source = Array(), $field) {
+        // Check if the a logo field has been assigned
+        if (empty($source[$field])) return;
+
+        // If the remove flag has been set, null the field
+        if ($source[$field . '_remove']) {
+            $source[$field] = null;
+            unset($source[$field . '_remove']);
+            return;
+        }
+
+        // It has, next check its not empty or has error
+        $meta = $source[$field];
+        if ($meta['size'] && !$meta['error']) {
+
+            // Concat the destination filename
+            $dest = WWW_ROOT . 'img' . DS . $meta['name'];
+
+            // Move the temp upload to its home
+            move_uploaded_file($meta['tmp_name'], $dest);
+
+            // Update the model with the filename
+            $source[$field] = $meta['name'];
+        } else {
+            // The entry is a dud, remove it
+            unset($source[$field]);
+        }
+    }
+
 }

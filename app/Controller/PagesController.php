@@ -31,7 +31,7 @@ App::uses('Client', 'Model');
  */
 class PagesController extends AppController {
 
-	public $uses = array('Business', 'Style');
+	public $uses = array('Business', 'Style', 'Home', 'Widget');
 
     /**
      * Displays a view
@@ -61,11 +61,15 @@ class PagesController extends AppController {
 		}
 
         $business = $this->Business->findById($this->client_id);
+        $widgets = $business['Widget'];
         $business = $business['Business'];
         $style = $this->Style->findById($this->client_id);
         $style = $style['Style'];
+        $home = $this->Home->findById($this->client_id);
+        $home = $home['Home'];
 
-		$this->set(compact('page', 'subpage', 'title_for_layout', 'business', 'style'));
+
+		$this->set(compact('page', 'subpage', 'title_for_layout', 'business', 'style', 'home', 'widgets'));
 
 		try {
 			$this->render(implode('/', $path));

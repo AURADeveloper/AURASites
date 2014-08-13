@@ -1,6 +1,6 @@
 <?php
-App::uses('AppModel', 'Model');
 
 class Business extends AppModel {
-
+    //public $hasOne = array('Style', 'Home');
+    public $hasMany = 'Widget';
 }

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: samedge
- * Date: 11/08/2014
- * Time: 12:10 PM
- */
 
 class StyleController extends AppController {
 

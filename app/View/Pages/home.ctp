@@ -29,44 +29,23 @@
 
 <section class="slogan">
     <div class="container">
-        If you cannot find your business on <a href="http://www.google.com.au" target="_blank">Google</a>, <strong>Contact Us</strong> today!
+        <?php echo $home['slogan']; ?>
     </div>
 </section>
 
 <section class="portal">
     <div class="container">
         <div class="row">
+            <?php foreach($widgets as $widget): ?>
             <div class="col-sm-6 col-md-4">
                 <div class="well">
-                    <img data-src="holder.js/340x120" alt="..." class="img-responsive">
-
-                    <div class="caption">
-                        <p class="thumbnail-header text-center"><strong>About our business</strong></p>
-                        <p class="text-center"><em>This is descriptive text for the "about us" widget. Use Keywords that help get you found in Google!</em></p>
-                        <p><a href="" class="btn btn-primary btn-lg btn-block" role="button">Learn About Us</a> </p>
-                    </div>
+                    <p><?php echo $this->Html->image($widget['image'], array('alt' => $widget['caption'], 'class' => 'img-responsive center-block')); ?></p>
+                    <p class="text-center"><strong><?php echo $widget['caption']; ?></strong></p>
+                    <p class="text-center"><em><?php echo $widget['text']; ?></em></p>
+                    <?php echo $this->Html->link($widget['button'], '/' . $widget['link'], array('class' => 'btn btn-primary btn-lg btn-block')); ?>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="well">
-                    <img data-src="holder.js/340x120" alt="..." class="img-responsive">
-                    <div class="caption">
-                        <p class="thumbnail-header text-center"><strong>How can we help?</strong></p>
-                        <p class="text-center"><em>This is descriptive text for the "services" widget. Use Keywords that help get you found in Google!</em></p>
-                        <p><a href="" class="btn btn-primary btn-lg btn-block" role="button">View All Services</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <div class="well">
-                    <img data-src="holder.js/340x120" alt="..." class="img-responsive">
-                    <div class="caption">
-                        <p class="thumbnail-header text-center"><strong>Get in touch today!</strong></p>
-                        <p class="text-center"><em>This is descriptive text for the "contact" widget. Use Keywords that help get you found in Google!</em></p>
-                        <p><a href="" class="btn btn-primary btn-lg btn-block" role="button">Contact Us Now</a> </p>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
