@@ -1,30 +1,15 @@
 <section class="cover_image">
+    <?php if(!empty($home['cover'])): ?>
     <div class="container">
         <div class="well">
             <div class="row">
-                <div class="col-sm-6">
-                    <h2>What we can do for you:</h2>
-                    <ul>
-                        <li>Establish web presence for your business</li>
-                        <li>Build a website fast, tailored to your market</li>
-                        <li>Reach out to new customers through AdWords campaigns</li>
-                        <li>Customized, e-commerce and business solutions</li>
-                        <li>Long term, future proof and cost effective</li>
-                    </ul>
-                </div>
-                <div class="col-sm-6">
-                    We build on..
-                    <div class="center-block google-logo">
-                        <?php echo $this->HTML->image('google-logo.png', array('class' => 'img-responsive')); ?>
-                    </div>
-                    <span class="pull-right">
-                        Aura Access is a
-                        <a href="http://www.google.com.au/partners" target="_blank">Google Partner</a>
-                    </span>
+                <div class="col-lg-12">
+                    <?php echo $home['cover']; ?>
                 </div>
             </div>
         </div>
     </div>
+    <?php endif; ?>
 </section>
 
 <section class="slogan">
@@ -37,7 +22,7 @@
     <div class="container">
         <div class="row">
             <?php foreach($widgets as $widget): ?>
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-4">
                 <div class="well">
                     <p><?php echo $this->Html->image($widget['image'], array('alt' => $widget['caption'], 'class' => 'img-responsive center-block')); ?></p>
                     <p class="text-center"><strong><?php echo $widget['caption']; ?></strong></p>

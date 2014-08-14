@@ -1,8 +1,12 @@
-@import "aura-variables.less";
-@import "custom-variables.less";
-
 @alt-text: #fff;
 @glass-color: rgba(0,0,0,0.625);
+@cover-well-bg: @glass-color;
+@cover-well-border: 1px solid #888;
+@cover-image: url('../img/page_banner.jpg');
+
+@import "aura-variables.less";
+@import "custom-variables.less";
+@import "custom-home.less";
 
 /*
  The top most banner containing the logo and business address
@@ -33,20 +37,23 @@ header {
  The cover image has a large photo background with a information container
  */
 .cover_image {
-  background-image: url('../img/page_banner.jpg');
+  background-image: @cover-image;
   background-position: center;
   background-size: auto;
   background-repeat: no-repeat;
+
+  min-height: 240px;
 
   color: @alt-text;
 
   .well {
     margin-top: 20px;
-    background-color: @glass-color;
-    border: 1px solid #888;
+    background-color: @cover-well-bg;
+    border: @cover-well-border;
+    min-height: 198px;
 
-    .h2 {
-
+    h1, h2, h3 {
+      margin-top: 0;
     }
 
     .google-logo {

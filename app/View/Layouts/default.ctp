@@ -25,8 +25,8 @@
 		echo $this->Html->meta('icon');
 
         if (Configure::read('debug')) {
-            echo $this->Html->tag('link', null, array('rel' => 'stylesheet/less', 'text' => 'text/css', 'href' => 'less/aura.less'));
-            echo $this->Html->tag('link', null, array('rel' => 'stylesheet/less', 'text' => 'text/css', 'href' => 'less/bootstrap.less'));
+            echo $this->Html->css('../less/aura.less?', array('rel' => 'stylesheet/less'));
+            echo $this->Html->css('../less/bootstrap.less?', array('rel' => 'stylesheet/less'));
             echo $this->Html->script('../bower_components/less/dist/less-1.7.3');
         } else {
             echo $this->Html->css('bootstrap');

@@ -37,17 +37,7 @@ class Style extends AppModel {
 
         file_put_contents(WWW_ROOT . 'less' . DS . "custom-variables.less", $custom);
 
-        $less = new Less_Parser();
-
-        try {
-            $less->parseFile(WWW_ROOT . 'less' . DS . "bootstrap.less", WWW_ROOT . 'css' . DS . "bootstrap.css");
-            $less->parseFile(WWW_ROOT . 'less' . DS . "aura.less",      WWW_ROOT . 'css' . DS . "aura.css");
-        } catch (exception $e) {
-            if (Configure::read('debug')) {
-                throw $e;
-            }
-            throw new InternalErrorException();
-        }
+        $this->recompileCustomStyles();
     }
 
 }
