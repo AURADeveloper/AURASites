@@ -111,5 +111,13 @@
 <?php $this->Form->end(); ?>
 <script>
 //    CKEDITOR.replace( 'HomeSlogan' );
-    CKEDITOR.replace( 'HomeCover' );
+//    CKEDITOR.replace( 'HomeCover' );
+//tinymce.init({
+//    selector: "#HomeCover",
+//    menubar : false,
+//    plugins: "code",
+//    toolbar: [
+//        "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | code"
+//    ]
+//});
 </script>

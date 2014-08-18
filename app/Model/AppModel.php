@@ -42,13 +42,14 @@ class AppModel extends Model {
      *
      * @param $source array The model containing the image attribute
      * @param $field string The model attribute containing the file meta
+     * @param $subdir string The destination directory (relative to WWW_ROOT) to write to
      */
-    function handleImageUpload(&$source = Array(), $field) {
+    function handleImageUpload(&$source = Array(), $field, $subdir = null) {
         // Check if the a logo field has been assigned
         if (empty($source[$field])) return;
 
         // If the remove flag has been set, null the field
-        if ($source[$field . '_remove']) {
+        if (in_array($field . '_remove', $source)) {
             $source[$field] = null;
             unset($source[$field . '_remove']);
             return;
@@ -57,28 +58,36 @@ class AppModel extends Model {
         // It has, next check its not empty or has error
         $meta = $source[$field];
         if ($meta['size'] && !$meta['error']) {
+            // Set the file path, including the subdir if one was defined
+            $file_path = is_null($subdir) ? $meta['name'] : $subdir . DS . $meta['name'];
 
-            // Concat the destination filename
-            $dest = WWW_ROOT . 'img' . DS . $meta['name'];
+            // Concat the destination filename - use the temp name hash to keep the image name unique
+            $move_dir = WWW_ROOT . 'img' . DS . $file_path;
 
             // Move the temp upload to its home
-            move_uploaded_file($meta['tmp_name'], $dest);
+            move_uploaded_file($meta['tmp_name'], $move_dir);
 
             // Update the model with the filename
-            $source[$field] = $meta['name'];
+            $source[$field] = $file_path;
         } else {
             // The entry is a dud, remove it
             unset($source[$field]);
         }
     }
 
+    /**
+     * Recompiles the businesses custom CSS styles.
+     *
+     * @throws InternalErrorException
+     * @throws Exception
+     */
     function recompileCustomStyles() {
         $less = new Less_Parser();
 
         try {
             $less->parseFile(WWW_ROOT . 'less' . DS . "bootstrap.less", WWW_ROOT . 'css' . DS . "bootstrap.css");
             $less->parseFile(WWW_ROOT . 'less' . DS . "aura.less",      WWW_ROOT . 'css' . DS . "aura.css");
-        } catch (exception $e) {
+        } catch (Exception $e) {
             if (Configure::read('debug')) {
                 throw $e;
             }

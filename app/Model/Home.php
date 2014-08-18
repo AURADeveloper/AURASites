@@ -10,7 +10,7 @@ class Home extends AppModel {
     );
 
     function beforeSave($options = Array()) {
-        $this->handleImageUpload($this->data['Home'], 'cover_image');
+        $this->handleImageUpload($this->data['Home'], 'cover_image', 'img' . DS . 'home');
     }
 
     function afterSave($created, $options = Array()) {

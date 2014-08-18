@@ -16,6 +16,6 @@
     "less": "~1.7.4",
     "font-awesome": "~4.1.0",
     "JSColor": "~1.4.2",
-    "ckeditor": "~4.4.3"
+    "notifyjs": "~0.3.2"
   }
 }

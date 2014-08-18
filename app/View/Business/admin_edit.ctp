@@ -1,5 +1,6 @@
 <h1>Business Details</h1>
-<?php echo $this->Session->flash(); ?>
+<?php echo $this->Session->flash('success'); ?>
+<?php echo $this->Session->flash('warn'); ?>
 <?php
 # Initialize a form, using bootstrap styles
 echo $this->Form->create(array(

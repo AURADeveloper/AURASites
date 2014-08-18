@@ -19,7 +19,7 @@
 <head>
     <?php echo $this->Html->charset(); ?>
     <title>
-        <?php echo $business['trading_name'] . ' : ' . $title_for_layout; ?>
+        <?php echo 'AURA Site Builder : ' . $title_for_layout; ?>
     </title>
     <?php
     echo $this->Html->meta('icon');
@@ -38,7 +38,8 @@
     echo $this->Html->script('../bower_components/jquery/dist/jquery');
     echo $this->Html->script('../bower_components/bootstrap/dist/js/bootstrap');
     echo $this->Html->script('../bower_components/JSColor/jscolor');
-    echo $this->Html->script('../bower_components/ckeditor/ckeditor');
+    echo $this->Html->script('../bower_components/notifyjs/dist/notify');
+    echo $this->Html->script('../bower_components/notifyjs/dist/styles/bootstrap/notify-bootstrap');
     echo $this->Html->script('holder');
     echo $this->Html->script('admin');
 
@@ -57,14 +58,15 @@
         <nav id="nav">
             <h1>General</h1>
             <ul>
-                <li><?php echo $this->Html->link('Business Details', array('admin' => true, 'controller' => 'business', 'action' => 'edit')); ?></li>
-                <li><?php echo $this->Html->link('Style', array('admin' => true, 'controller' => 'style', 'action' => 'edit')); ?></li>
+                <li><?php echo $this->Html->link('Details', array('admin' => true, 'controller' => 'business', 'action' => 'edit')); ?></li>
+                <li><?php echo $this->Html->link('Branding', array('admin' => true, 'controller' => 'style', 'action' => 'edit')); ?></li>
             </ul>
             <h1>Content</h1>
             <ul>
                 <li><?php echo $this->Html->link('Home', array('admin' => true, 'controller' => 'home', 'action' => 'edit')); ?></li>
-                <li>Services</li>
-                <li>About</li>
+                <li><?php echo $this->Html->link('Sample', array('admin' => true, 'controller' => 'sample', 'action' => 'edit')); ?></li>
+                <li><?php echo $this->Html->link('Service', array('admin' => true, 'controller' => 'service', 'action' => 'edit')); ?></li>
+                <li><?php echo $this->Html->link('About', array('admin' => true, 'controller' => 'about', 'action' => 'edit')); ?></li>
             </ul>
         </nav>
     </div>

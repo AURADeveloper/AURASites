@@ -84,8 +84,10 @@
         <div class="collapse navbar-collapse" id="header-navbar-collapse">
             <ul class="nav navbar-nav">
                 <li <?php if ($page == 'home') echo ' class="active"'?>><a href="/">Home</a></li>
-                <li <?php if ($page == 'samples') echo ' class="active"'?>><a href="samples">Samples</a></li>
-                <li <?php if ($page == 'services') echo ' class="active"'?>><a href="services">Services</a></li>
+                <li <?php if ($page == 'sample') echo ' class="active"'?>>
+                    <?php echo $this->Html->link('Samples', array('controller' => 'sample')); ?>
+                </li>
+                <li <?php if ($page == 'service') echo ' class="active"'?>><a href="services">Services</a></li>
                 <li <?php if ($page == 'about') echo ' class="active"'?>><a href="about">About</a></li>
                 <li <?php if ($page == 'location') echo ' class="active"'?>><a href="location">Location</a></li>
                 <li <?php if ($page == 'contact') echo ' class="active"'?>><a href="contact">Contact</a></li>
