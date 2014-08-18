@@ -107,11 +107,4 @@ CakeLog::config('error', array(
 	'file' => 'error',
 ));
 
-// Load custom config settings - install a JSON reader
-App::uses('JsonReader', 'Configure');
-Configure::config('json', new JsonReader());
-
-// This file contains AURAs brand info
-Configure::load('data/aura', 'json');
-
 CakePlugin::load('Composer', array('bootstrap' => true));

@@ -8,15 +8,13 @@
     </div>
 </div>
 <div class="container">
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
+    <div id="sample-gallery" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <?php for ($i = 0; $i < count($this->data); $i++): ?>
-            <li data-target="#carousel-example-generic" data-slide-to="<?php echo $i; ?>"<?php if($i == 0) echo ' class="active"'?>></li>
+            <li data-target="#sample-gallery" data-slide-to="<?php echo $i; ?>"<?php if($i == 0) echo ' class="active"'?>></li>
             <?php endfor; ?>
         </ol>
 
-        <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <?php for ($i = 0; $i < count($this->data); $i++): ?>
             <div class="item<?php if ($i == 0) echo ' active'; ?>">
@@ -29,11 +27,10 @@
             <?php endfor; ?>
         </div>
 
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <a class="left carousel-control" href="#sample-gallery" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <a class="right carousel-control" href="#sample-gallery" role="button" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
     </div>

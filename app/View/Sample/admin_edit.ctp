@@ -32,14 +32,6 @@
         ?>
     </div>
 </div>
-<div class="row">
-    <div class="col-xs-12">
-        <div class="pull-right">
-
-        </div>
-    </div>
-</div>
-
 <script>
     $("#SampleImage").change(function(){
         previewImage(this, "#SampleImagePreview");

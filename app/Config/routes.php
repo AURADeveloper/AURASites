@@ -28,11 +28,11 @@
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
-	Router::connect('/about', array('controller' => 'pages', 'action' => 'display', 'about'));
-    Router::connect('/contact', array('controller' => 'pages', 'action' => 'display', 'contact'));
-    Router::connect('/location', array('controller' => 'pages', 'action' => 'display', 'location'));
+	//Router::connect('/about', array('controller' => 'pages', 'action' => 'display', 'about'));
+    //Router::connect('/contact', array('controller' => 'pages', 'action' => 'display', 'contact'));
+    //Router::connect('/location', array('controller' => 'pages', 'action' => 'display', 'location'));
     //Router::connect('/sample', array('controller' => 'pages', 'action' => 'display', 'samples'));
-    Router::connect('/services', array('controller' => 'pages', 'action' => 'display', 'services'));
+    //Router::connect('/services', array('controller' => 'pages', 'action' => 'display', 'services'));
 
     Router::connect('/admin', array('controller' => 'business', 'action' => 'index', 'admin' => true));
 

@@ -36,9 +36,10 @@ echo $this->Form->create(array(
         <legend>Social</legend>
         <div class="control-group">
             <?php
-            echo $this->Form->input('social_plus', array('label' => 'Plus'));
-            echo $this->Form->input('social_facebook', array('label' => 'Facebook'));
-            echo $this->Form->input('social_twitter', array('label' => 'Twitter'));
+            echo $this->Form->input('social_plus');
+            echo $this->Form->input('social_facebook');
+            echo $this->Form->input('social_twitter');
+            echo $this->Form->input('map_url');
             ?>
         </div>
     </div>

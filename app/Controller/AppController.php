@@ -38,22 +38,23 @@ class AppController extends Controller {
         // Read the client id from the application global config
         $this->client_id = Configure::read('Client.id');
 
+        // Bootstrap
+        $bootstrap_form_options = array(
+            'enctype' => 'multipart/form-data', // needed for uploading images
+            'class' => 'form-horizontal', // bootstrap horizontal form
+            'inputDefaults' => array(
+                'div' => 'form-group', // wrap all inputs (including labels) in a div.form-group
+                'class' => 'form-control', // the class to assign the input
+                'between' => '<div class="col-sm-10">', // wraps the input - use a column
+                'after' => '</div>', // wraps the input
+                'label' => array(
+                    'class' => 'col-sm-2 control-label'))); // label class
+
+        $this->set(compact('bootstrap_form_options'));
+
         // Set admin controller state
         if (isset($this->params['admin'])) {
             $this->layout = 'admin';
-
-            $bootstrap_form_options = array(
-                'enctype' => 'multipart/form-data', // needed for uploading images
-                'class' => 'form-horizontal', // bootstrap horizontal form
-                'inputDefaults' => array(
-                    'div' => 'form-group', // wrap all inputs (including labels) in a div.form-group
-                    'class' => 'form-control', // the class to assign the input
-                    'between' => '<div class="col-sm-10">', // wraps the input - use a column
-                    'after' => '</div>', // wraps the input
-                    'label' => array(
-                        'class' => 'col-sm-2 control-label'))); // label class
-
-            $this->set(compact('bootstrap_form_options'));
         }
 
         // Set client controller state

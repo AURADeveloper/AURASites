@@ -87,7 +87,9 @@
                 <li <?php if ($page == 'sample') echo ' class="active"'?>>
                     <?php echo $this->Html->link('Samples', array('controller' => 'sample')); ?>
                 </li>
-                <li <?php if ($page == 'service') echo ' class="active"'?>><a href="services">Services</a></li>
+                <li <?php if ($page == 'service') echo ' class="active"'?>>
+                    <?php echo $this->Html->link('Services', array('controller' => 'service')); ?>
+                </li>
                 <li <?php if ($page == 'about') echo ' class="active"'?>><a href="about">About</a></li>
                 <li <?php if ($page == 'location') echo ' class="active"'?>><a href="location">Location</a></li>
                 <li <?php if ($page == 'contact') echo ' class="active"'?>><a href="contact">Contact</a></li>
