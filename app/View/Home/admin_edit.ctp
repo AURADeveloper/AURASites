@@ -1,5 +1,3 @@
-<h1>Home Content</h1>
-<hr>
 <?php echo $this->Session->flash(); ?>
 <?php echo $this->Form->create(array(
     'enctype' => 'multipart/form-data',
@@ -13,7 +11,7 @@
             'class' => 'col-sm-2 control-label')))); ?>
 <div class="row">
     <div class="col-lg-12">
-        <div class="well">
+        <div class="">
             <legend>Basic Info</legend>
             <div class="control-group">
                 <?php
@@ -49,10 +47,11 @@
         </div>
     </div>
 </div>
-<?php for($i = 0; $i < count($this->request->data['Widget']); $i++) : ?>
 <div class="row">
+<?php for($i = 0; $i < count($this->request->data['Widget']); $i++) : ?>
+
     <div class="col-lg-12">
-        <div class="well">
+        <div class="">
             <legend>Portal Widget #<?php echo $i + 1;?></legend>
             <?php echo '<div class="form-group">';
             echo '<div class="col-sm-offset-2 col-sm-10">';
@@ -100,7 +99,7 @@
                 previewImage(this, "#portal-img-<?php echo $i; ?>");
             });
         </script>
-    </div>
+
 <!--    <div class="col-lg-6 hidden-md hidden-sm hidden-xs">-->
 <!--        <div class="well">-->
 <!--            <legend>Preview</legend>-->
@@ -108,6 +107,7 @@
 <!--    </div>-->
 </div>
 <?php endfor; ?>
+</div>
 <?php $this->Form->end(); ?>
 <script>
 //    CKEDITOR.replace( 'HomeSlogan' );

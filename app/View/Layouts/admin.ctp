@@ -60,12 +60,19 @@
             <ul>
                 <li><?php echo $this->Html->link('Details', array('admin' => true, 'controller' => 'business', 'action' => 'edit')); ?></li>
                 <li><?php echo $this->Html->link('Branding', array('admin' => true, 'controller' => 'style', 'action' => 'edit')); ?></li>
+                <li><?php echo $this->Html->link('Contact', array('admin' => true, 'controller' => 'contact', 'action' => 'edit')); ?></li>
             </ul>
             <h1>Content</h1>
             <ul>
                 <li><?php echo $this->Html->link('Home', array('admin' => true, 'controller' => 'home', 'action' => 'edit')); ?></li>
+                <ul>
+                    <li><?php echo $this->Html->link('Cover', array('admin' => true, 'controller' => 'home', 'action' => 'edit', 'cover')); ?></li>
+                    <li><?php echo $this->Html->link('Portal #1', array('admin' => true, 'controller' => 'home', 'action' => 'edit', 'portal', '1')); ?></li>
+                    <li><?php echo $this->Html->link('Portal #2', array('admin' => true, 'controller' => 'home', 'action' => 'edit', 'portal', '2')); ?></li>
+                    <li><?php echo $this->Html->link('Portal #3', array('admin' => true, 'controller' => 'home', 'action' => 'edit', 'portal', '3')); ?></li>
+                </ul>
                 <li><?php echo $this->Html->link('Sample', array('admin' => true, 'controller' => 'sample', 'action' => 'edit')); ?></li>
-                <li><?php echo $this->Html->link('Service', array('admin' => true, 'controller' => 'service', 'action' => 'edit')); ?></li>
+                <li><?php echo $this->Html->link('Service', array('admin' => true, 'controller' => 'service', 'action' => 'index')); ?></li>
                 <li><?php echo $this->Html->link('About', array('admin' => true, 'controller' => 'about', 'action' => 'edit')); ?></li>
             </ul>
         </nav>

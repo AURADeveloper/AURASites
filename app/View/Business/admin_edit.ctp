@@ -1,50 +1,33 @@
-<h1>Business Details</h1>
-<?php echo $this->Session->flash('success'); ?>
-<?php echo $this->Session->flash('warn'); ?>
-<?php
-# Initialize a form, using bootstrap styles
-echo $this->Form->create(array(
-    'class' => 'form-horizontal',
-    'inputDefaults' => array(
-        'div' => 'form-group',
-        'class' => 'form-control')));
-?>
+<?php echo $this->Session->flash(); ?>
+<?php echo $this->Form->create($bootstrap_form_options); ?>
 <div class="row">
-    <div class="col-sm-6">
-        <legend>Basic Info</legend>
-        <div class="control-group">
-            <?php
-            # Declare the business form inputs
-            echo $this->Form->input('trading_name', array('label' => 'Trading Name'));
-            echo $this->Form->input('abn', array('label' => 'ABN'));
-            echo $this->Form->input('phone', array('label' => 'Phone'));
-            echo $this->Form->input('fax', array('label' => 'Fax'));
-            ?>
-        </div>
+    <div class="col-xs-12">
+        <?php
+        echo '<legend>Basic Info</legend>';
+        echo $this->Form->input('trading_name');
+        echo $this->Form->input('abn');
+        echo $this->Form->input('phone');
+        echo $this->Form->input('fax');
 
-        <legend>Address</legend>
-        <div class="control-group">
-            <?php
-            echo $this->Form->input('address_street1', array('label' => 'Street'));
-            echo $this->Form->input('address_suburb', array('label' => 'Suburb'));
-            echo $this->Form->input('address_state', array('label' => 'State'));
-            echo $this->Form->input('address_postcode', array('label' => 'Postcode'));
-            ?>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <legend>Social</legend>
-        <div class="control-group">
-            <?php
-            echo $this->Form->input('social_plus');
-            echo $this->Form->input('social_facebook');
-            echo $this->Form->input('social_twitter');
-            echo $this->Form->input('map_url');
-            ?>
-        </div>
+        echo '<legend>Address</legend>';
+        echo $this->Form->input('address_street1');
+        echo $this->Form->input('address_suburb');
+        echo $this->Form->input('address_state');
+        echo $this->Form->input('address_postcode');
+
+        echo '<legend>Social</legend>';
+        echo $this->Form->input('social_plus');
+        echo $this->Form->input('social_facebook');
+        echo $this->Form->input('social_twitter');
+        echo $this->Form->input('map_url');
+
+        echo '<div class="form-group">';
+        echo '<div class="col-sm-offset-2 col-sm-10">';
+        echo $this->Form->button('Update', array('type' => 'submit', 'class' => 'btn btn-default'));
+        echo '</div>';
+        echo '</div>';
+
+        echo $this->Form->end();
+        ?>
     </div>
 </div>
-<?php
-# Close the form, naming the submit button
-echo $this->Form->end('Submit');
-?>

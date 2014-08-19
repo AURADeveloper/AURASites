@@ -1,10 +1,9 @@
-<h1>Service</h1>
 <?php echo $this->Session->flash(); ?>
 <div class="row">
     <div class="col-xs-12">
         <?php
         if(count($this->data) == 0) echo '<legend>New Service</legend>';
-        if(count($this->data) == 1) echo '<legend class="col-sm-offset-2 col-sm-10">Service #' . $this->data['Service']['id'] . '</legend>';
+        if(count($this->data) == 1) echo '<legend>Service #' . $this->data['Service']['id'] . '</legend>';
 
         echo $this->Form->create($bootstrap_form_options);
         echo $this->Form->hidden('id');

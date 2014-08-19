@@ -1,4 +1,3 @@
-<h1>Samples</h1>
 <?php echo $this->Session->flash(); ?>
 <div class="row">
     <div class="col-xs-12">
