@@ -35,7 +35,7 @@ class Style extends AppModel {
         $custom .= sprintf('@brand-danger: #%s;',  $this->data['Style']['brand_danger']);
         $custom .= "\n";
 
-        file_put_contents(WWW_ROOT . 'less' . DS . "custom-variables.less", $custom);
+        file_put_contents(WWW_ROOT . 'less' . DS . "client-custom-variables.less", $custom);
 
         $this->recompileCustomStyles();
     }

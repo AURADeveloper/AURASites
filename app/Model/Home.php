@@ -43,7 +43,7 @@ class Home extends AppModel {
         $lessStylesheet .= sprintf('@cover-image: url(../img/%s);', $data['Home']['cover_image']);
         $lessStylesheet .= "\n";
 
-        file_put_contents(WWW_ROOT . 'less' . DS . "custom-home.less", $lessStylesheet);
+        file_put_contents(WWW_ROOT . 'less' . DS . "client-custom-home.less", $lessStylesheet);
 
         $this->recompileCustomStyles();
     }

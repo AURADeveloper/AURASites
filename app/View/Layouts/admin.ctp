@@ -50,7 +50,7 @@
 </head>
 <body>
 <header id="header">
-    <?php echo $this->Html->image('logo-black.png', array('class', 'inline-image')); ?>
+    <?php echo $this->Html->image('logo.png', array('class', 'inline-image')); ?>
     <h1>Site Builder</h1>
 </header>
 <div id="wrapper">
@@ -65,12 +65,6 @@
             <h1>Content</h1>
             <ul>
                 <li><?php echo $this->Html->link('Home', array('admin' => true, 'controller' => 'home', 'action' => 'edit')); ?></li>
-                <ul>
-                    <li><?php echo $this->Html->link('Cover', array('admin' => true, 'controller' => 'home', 'action' => 'edit', 'cover')); ?></li>
-                    <li><?php echo $this->Html->link('Portal #1', array('admin' => true, 'controller' => 'home', 'action' => 'edit', 'portal', '1')); ?></li>
-                    <li><?php echo $this->Html->link('Portal #2', array('admin' => true, 'controller' => 'home', 'action' => 'edit', 'portal', '2')); ?></li>
-                    <li><?php echo $this->Html->link('Portal #3', array('admin' => true, 'controller' => 'home', 'action' => 'edit', 'portal', '3')); ?></li>
-                </ul>
                 <li><?php echo $this->Html->link('Sample', array('admin' => true, 'controller' => 'sample', 'action' => 'edit')); ?></li>
                 <li><?php echo $this->Html->link('Service', array('admin' => true, 'controller' => 'service', 'action' => 'index')); ?></li>
                 <li><?php echo $this->Html->link('About', array('admin' => true, 'controller' => 'about', 'action' => 'edit')); ?></li>

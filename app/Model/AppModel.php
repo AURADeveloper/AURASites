@@ -85,8 +85,10 @@ class AppModel extends Model {
         $less = new Less_Parser();
 
         try {
-            $less->parseFile(WWW_ROOT . 'less' . DS . "bootstrap.less", WWW_ROOT . 'css' . DS . "bootstrap.css");
-            $less->parseFile(WWW_ROOT . 'less' . DS . "aura.less",      WWW_ROOT . 'css' . DS . "aura.css");
+            $less->parseFile(WWW_ROOT . 'less' . DS . "bootstrap-client.less", WWW_ROOT . 'css' . DS . "bootstrap-client.css");
+            $less->parseFile(WWW_ROOT . 'less' . DS . "bootstrap-admin.less",  WWW_ROOT . 'css' . DS . "bootstrap-admin.css");
+            $less->parseFile(WWW_ROOT . 'less' . DS . "client.less", WWW_ROOT . 'css' . DS . "client.css");
+            $less->parseFile(WWW_ROOT . 'less' . DS . "admin.less",  WWW_ROOT . 'css' . DS . "admin.css");
         } catch (Exception $e) {
             if (Configure::read('debug')) {
                 throw $e;

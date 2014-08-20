@@ -3,9 +3,9 @@
         <h1>Services</h1>
     </div>
 </div>
-<div class="container services">
+<div class="container">
     <?php foreach($this->data as $data): ?>
-    <div class="panel panel-primary">
+    <div class="panel panel-primary service">
         <div class="panel-heading">
             <h3 class="panel-title"><?php echo $data['Service']['heading']; ?></h3>
         </div>

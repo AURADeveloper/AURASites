@@ -1,37 +1,13 @@
+@import "client-custom-variables.less";
+@import "client-custom-home.less";
+
+// AURA Variables
 @alt-text: #fff;
 @glass-color: rgba(0,0,0,0.625);
 @cover-well-bg: @glass-color;
 @cover-well-border: 1px solid #888;
 @cover-image: url('../img/page_banner.jpg');
 
-@import "aura-variables.less";
-@import "custom-variables.less";
-@import "custom-home.less";
-
-/*
- The top most banner containing the logo and business address
- */
-header {
-  background-color: @brand-primary;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  color: @alt-text;
-
-  address {
-    margin-bottom: 0;
-  }
-
-  h1 {
-    margin: 0;
-  }
-}
-
-/*
- The navigation bar
- */
-.nav {
-  font-size: @font-size-large;
-}
 
 /*
  The cover image has a large photo background with a information container
@@ -91,12 +67,39 @@ header {
   }
 }
 
-.services {
-  button {
-    margin-top: 20px;
+.service {
 
-    @media (max-width: @screen-sm-min) {
+  .panel-heading {
+    font-size: 0px;
+
+    h3 {
+      display: inline-block;
+    }
+
+    .toolbar {
+      float: right;
+      margin: -10px -15px;
+
+      font-size: 16px;
+      border-top-right-radius: @panel-border-radius;
+
+      a {
+        padding: 7px 15px 8px;
+        display: inline-block;
+        border-left: 1px solid @panel-primary-heading-bg;
+      }
+    }
+  }
+
+  .panel-body {
+    image {
       margin-bottom: 20px;
+    }
+
+    button {
+      @media (max-width: @screen-sm-min) {
+        margin-bottom: 20px;
+      }
     }
   }
 }
@@ -111,8 +114,4 @@ header {
   > div {
     padding-top: 20px;
   }
-}
-
-footer {
-  margin-top: 20px;
 }
