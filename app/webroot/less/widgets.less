@@ -19,11 +19,12 @@
   background-repeat: no-repeat;
 
   min-height: 240px;
+  padding: 20px 15px;
 
   color: @alt-text;
 
   .well {
-    margin-top: 20px;
+    margin: 0;
     background-color: @cover-well-bg;
     border: @cover-well-border;
     min-height: 198px;
@@ -87,6 +88,10 @@
         padding: 7px 15px 8px;
         display: inline-block;
         border-left: 1px solid @panel-primary-heading-bg;
+
+        &:last-child {
+          border-top-right-radius: @panel-border-radius;
+        }
       }
     }
   }

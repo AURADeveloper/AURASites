@@ -64,7 +64,7 @@
             </ul>
             <h1>Content</h1>
             <ul>
-                <li><?php echo $this->Html->link('Home', array('admin' => true, 'controller' => 'home', 'action' => 'edit')); ?></li>
+                <li><?php echo $this->Html->link('Home', array('admin' => true, 'controller' => 'home', 'action' => 'index')); ?></li>
                 <li><?php echo $this->Html->link('Sample', array('admin' => true, 'controller' => 'sample', 'action' => 'edit')); ?></li>
                 <li><?php echo $this->Html->link('Service', array('admin' => true, 'controller' => 'service', 'action' => 'index')); ?></li>
                 <li><?php echo $this->Html->link('About', array('admin' => true, 'controller' => 'about', 'action' => 'edit')); ?></li>

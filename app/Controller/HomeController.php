@@ -2,24 +2,37 @@
 
 class HomeController extends AppController {
 
-    public $layout = 'admin';
-    //public $components = array('Security');
+    public $uses = array('Home', 'Widget');
+    public $components = array('RequestHandler');
 
-    public function admin_index() {
-        $this->request->data = $this->Home->findById($this->client_id);
+    public function index() {
+        $homes = $this->Home->findById($this->client_id);
+        $home = $homes['Home'];
+
+        $portals = $this->Widget->findAllByBusinessId($this->client_id);
+        $this->set(compact('portals', 'home'));
     }
 
-    public function admin_edit() {
-        if (!empty($this->request->data)) {
-            if ($this->Home->saveAssociated($this->request->data, array('deep' => true))) {
-                $this->Session->setFlash('Home Updated!');
+    public function admin_index() {
+        $homes = $this->Home->findById($this->client_id);
+        $home = $homes['Home'];
+
+        $portals = $this->Widget->findAllByBusinessId($this->client_id);
+        $this->set(compact('portals', 'home'));
+    }
+
+    public function admin_edit($section, $id) {
+        if (isset($section) && $section == 'portal') {
+            $this->data = $this->Widget->findById($id);
+            if (count($this->data == 0)) {
+                $this->Session->setFlash(sprintf('Unable to locate portal with id #%s.', $id), 'notify_warn');
+                $this->redirect(array('controller' => 'Home', 'action' => 'index'));
+            } else {
+                $this->render('admin_edit_portal');
             }
         }
 
-        $this->request->data = $this->Home->findById($this->client_id);
-
-        $bootstrap_form_options = $this->bootstrap_form_options;
-        $this->set(compact('bootstrap_form_options'));
+        $this->data = $this->Home->findById($this->client_id);
     }
 
 }
