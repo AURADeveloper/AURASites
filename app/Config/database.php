@@ -64,28 +64,28 @@
  */
 class DATABASE_CONFIG {
 
-//	public $default = array(
-//		'datasource' => 'Database/Mysql',
-//		'persistent' => false,
-//		'host' => 'localhost',
-//		'login' => 'root',
-//		'password' => '',
-//		'database' => 'cakephp',
-//		'prefix' => '',
-//		//'encoding' => 'utf8',
-//        'unix_socket' => '/tmp/mysql.sock',
-//	);
+	public $default = array(
+		'datasource' => 'Database/Mysql',
+		'persistent' => false,
+		'host' => 'localhost',
+		'login' => 'root',
+		'password' => '',
+		'database' => 'cakephp',
+		'prefix' => '',
+		//'encoding' => 'utf8',
+        'unix_socket' => '/tmp/mysql.sock',
+	);
 
-    public $default = array (
-        'datasource' => 'Database/Mysql',
-        'persistent' => false,
-        'host' => '119.9.12.53',
-        'port' => 3306,
-        'login' => 'developer',
-        'password' => 'access21',
-        'database' => 'cakephp',
-        'prefix' => ''
-    );
+//    public $default = array (
+//        'datasource' => 'Database/Mysql',
+//        'persistent' => false,
+//        'host' => '119.9.12.53',
+//        'port' => 3306,
+//        'login' => 'developer',
+//        'password' => 'access21',
+//        'database' => 'cakephp',
+//        'prefix' => ''
+//    );
 
 	public $test = array(
 		'datasource' => 'Database/Mysql',

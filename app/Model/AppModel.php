@@ -49,7 +49,7 @@ class AppModel extends Model {
         if (empty($source[$field])) return;
 
         // If the remove flag has been set, null the field
-        if (in_array($field . '_remove', $source)) {
+        if (array_key_exists($field . '_remove', $source) && $source[$field . '_remove'] == 1) {
             $source[$field] = null;
             unset($source[$field . '_remove']);
             return;

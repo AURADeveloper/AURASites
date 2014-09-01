@@ -1,12 +1,13 @@
-<section class="cover_image">
+<section class="cover_image<?php if(!$style['full_span'] && !isset($this->params['admin'])) echo ' container';?>">
+    <div<?php if($style['full_span'] && !isset($this->params['admin'])) echo ' class="container"';?>>
     <?php if (isset($this->params['admin'])): ?>
-        <div style="position: relative">
-            <?php
-                echo $this->Html->link(
-                    '<button class="btn btn-default" style="position: absolute; top: 0; right: 0;">Edit</button>',
-                    array('controller' => 'home', 'action' => 'edit', 'admin' => 'true'),
-                    array('escapeTitle' => false));
-            ?>
+        <div class="options">
+            <div>
+                <?php echo $this->Html->link(
+                        '<button class="btn btn-default">Edit</button>',
+                        array('controller' => 'home', 'action' => 'edit', 'admin' => 'true'),
+                        array('escapeTitle' => false)); ?>
+            </div>
         </div>
     <?php endif; ?>
     <?php if(!empty($home['cover'])): ?>
@@ -18,4 +19,5 @@
         </div>
     </div>
     <?php endif; ?>
+    </div>
 </section>

@@ -49,13 +49,15 @@
     ?>
 </head>
 <body>
-<header id="header">
-    <?php echo $this->Html->image('logo.png', array('class', 'inline-image')); ?>
-    <h1>Site Builder</h1>
+<header>
+    <div class="container">
+        <?php echo $this->Html->image('logo.png', array('class', 'inline-image')); ?>
+        <h1>Site Builder</h1>
+    </div>
 </header>
-<div id="wrapper">
-    <div id="sidebar-wrapper">
-        <nav id="nav">
+<div class="container">
+    <div class="row">
+        <nav id="nav" class="col-xs-3 col-sm-2">
             <h1>General</h1>
             <ul>
                 <li><?php echo $this->Html->link('Details', array('admin' => true, 'controller' => 'business', 'action' => 'edit')); ?></li>
@@ -70,14 +72,10 @@
                 <li><?php echo $this->Html->link('About', array('admin' => true, 'controller' => 'about', 'action' => 'edit')); ?></li>
             </ul>
         </nav>
-    </div>
-    <div id="content-wrapper">
-        <main id="main">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <?php echo $this->fetch('content'); ?>
-                    </div>
+        <main id="main" class="col-xs-9 col-sm-10">
+            <div class="row">
+                <div class="col-lg-12">
+                    <?php echo $this->fetch('content'); ?>
                 </div>
             </div>
         </main>

@@ -6,5 +6,9 @@ class Business extends AppModel {
         'About' => array('foreignKey' => 'id'),
         'Contact' => array('foreignKey' => 'id'),
         'Home' => array('foreignKey' => 'id'));
-    public $hasMany = array('Widget', 'Sample', 'Service');
+    public $hasMany = array(
+        'Widget',
+        'Sample',
+        'Service',
+        'Content');
 }

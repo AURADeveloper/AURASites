@@ -2,15 +2,25 @@
 
 class Home extends AppModel {
 
+    public $hasOne = array(
+        'Style' => array(
+            'className' => 'Style',
+            'foreignKey' => 'id'
+        ));
+
     public $hasMany = array(
         'Widget' => array (
             'className' => 'Widget',
             'foreignKey' => 'business_id'
-        )
-    );
+        ));
+
+    public $wellBgOptions = array(
+        'none' => 'No Background',
+        'opaque' => 'Opaque',
+        'themed' => 'Themed');
 
     function beforeSave($options = Array()) {
-        $this->handleImageUpload($this->data['Home'], 'cover_image', 'img' . DS . 'home');
+        $this->handleImageUpload($this->data['Home'], 'cover_image', 'home');
     }
 
     function afterSave($created, $options = Array()) {

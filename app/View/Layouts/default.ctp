@@ -15,7 +15,7 @@
  */
 ?>
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
@@ -46,8 +46,8 @@
 </head>
 <body>
 
-<header role="banner">
-    <div class="container">
+<header role="banner"<?php if(!$style['full_span']) echo ' class="container"';?>>
+    <div<?php if($style['full_span']) echo ' class="container"';?>>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <?php
@@ -69,8 +69,8 @@
     </div>
 </header>
 
-<nav class="navbar navbar-inverse clearfix" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-inverse clearfix <?php if(!$style['full_span']) echo ' container';?>" role="navigation">
+    <div<?php if($style['full_span']) echo ' class="container"';?>>
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -107,8 +107,8 @@
 
 <?php echo $this->fetch('content'); ?>
 
-<section class="quick_links">
-    <div class="container">
+<section class="quick_links<?php if(!$style['full_span']) echo ' container';?>">
+    <div<?php if($style['full_span']) echo ' class="container"';?>>
         <div class="row">
             <div class="col-xs-6">
                 <address>
@@ -154,8 +154,8 @@
     </div>
 </section>
 
-<footer>
-    <div class="container">
+<footer<?php if($style['full_span']) echo ' class="container"';?>>
+    <div<?php if(!$style['full_span']) echo ' class="container"';?>>
         <div class="row">
             <div class="col-xs-9">
                 &copy; 2014 <?php echo Configure::read("Client.LegalName"); ?>. All rights reserved.</br>

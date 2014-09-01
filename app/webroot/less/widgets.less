@@ -1,13 +1,6 @@
-@import "client-custom-variables.less";
-@import "client-custom-home.less";
-
-// AURA Variables
-@alt-text: #fff;
-@glass-color: rgba(0,0,0,0.625);
-@cover-well-bg: @glass-color;
-@cover-well-border: 1px solid #888;
-@cover-image: url('../img/page_banner.jpg');
-
+@import "client-default-variables.less"; // Base theme variables
+@import "client-custom-variables.less";  // Global overrides such as brand colours
+@import "client-custom-home.less";       // Home style overrides
 
 /*
  The cover image has a large photo background with a information container
@@ -19,9 +12,20 @@
   background-repeat: no-repeat;
 
   min-height: 240px;
-  padding: 20px 15px;
+  padding: 20px;
 
   color: @alt-text;
+
+  .options {
+    position: relative;
+
+    > div {
+      margin: -10px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
 
   .well {
     margin: 0;
@@ -65,6 +69,19 @@
 
   p {
     margin: 0;
+  }
+}
+
+.portal {
+  .options {
+    position: relative;
+
+    > div {
+      margin: -10px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
 }
 
