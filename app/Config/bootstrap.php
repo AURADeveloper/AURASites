@@ -107,7 +107,4 @@ CakeLog::config('error', array(
 	'file' => 'error',
 ));
 
-App::uses('JsonReader', 'Configure');
-Configure::config('json', new JsonReader());
-Configure::load('data/client', 'json');
-Configure::load('data/aura', 'json');
+CakePlugin::load('Composer', array('bootstrap' => true));

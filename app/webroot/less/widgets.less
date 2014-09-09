@@ -1,0 +1,139 @@
+@import "client-default-variables.less"; // Base theme variables
+@import "client-custom-variables.less";  // Global overrides such as brand colours
+@import "client-custom-home.less";       // Home style overrides
+
+/*
+ The cover image has a large photo background with a information container
+ */
+.cover_image {
+  background-image: @cover-image;
+  background-position: center;
+  background-size: auto;
+  background-repeat: no-repeat;
+
+  min-height: 240px;
+  padding: 20px;
+
+  color: @alt-text;
+
+  .options {
+    position: relative;
+
+    > div {
+      margin: -10px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  .well {
+    margin: 0;
+    background-color: @cover-well-bg;
+    border: @cover-well-border;
+    min-height: 198px;
+
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+
+    .google-logo {
+      max-width: 420px;
+    }
+  }
+}
+
+/*
+ A thin banner situated below the image that contains a line of text
+ */
+.slogan {
+  background-color: @brand-primary;
+  min-height: 50px;
+  margin-bottom: 20px;
+  padding: @nav-link-padding;
+
+  div {
+    text-align: center;
+    color: @alt-text;
+    font-size: 20px;
+    width: 100%;
+  }
+
+  a {
+    color: #fff;
+  }
+
+  a:hover {
+    color: #eee;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.portal {
+  .options {
+    position: relative;
+
+    > div {
+      margin: -10px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
+.service {
+
+  .panel-heading {
+    font-size: 0px;
+
+    h3 {
+      display: inline-block;
+    }
+
+    .toolbar {
+      float: right;
+      margin: -10px -15px;
+
+      font-size: 16px;
+      border-top-right-radius: @panel-border-radius;
+
+      a {
+        padding: 7px 15px 8px;
+        display: inline-block;
+        border-left: 1px solid @panel-primary-heading-bg;
+
+        &:last-child {
+          border-top-right-radius: @panel-border-radius;
+        }
+      }
+    }
+  }
+
+  .panel-body {
+    image {
+      margin-bottom: 20px;
+    }
+
+    button {
+      @media (max-width: @screen-sm-min) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+#sample-gallery {
+  margin-bottom: 20px;
+}
+
+.quick_links {
+  background-color: @well-bg;
+
+  > div {
+    padding-top: 20px;
+  }
+}

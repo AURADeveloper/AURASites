@@ -13,32 +13,30 @@
  * @since         CakePHP(tm) v 0.10.0.1076
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
-$cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 ?>
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php echo Configure::read("Client.LegalName"); ?>:
-		<?php echo $title_for_layout; ?>
+		<?php echo $business['trading_name'] . ' : ' . $title_for_layout; ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
 
-        // use these in production
-        //echo $this->Html->css('bootstrap');
-        //echo $this->Html->css('aura');
+        if (Configure::read('debug')) {
+            echo $this->Html->css('../less/bootstrap-client.less?', array('rel' => 'stylesheet/less'));
+            echo $this->Html->css('../less/client.less?', array('rel' => 'stylesheet/less'));
+            echo $this->Html->script('../bower_components/less/dist/less-1.7.3');
+        } else {
+            echo $this->Html->css('bootstrap-client');
+            echo $this->Html->css('client');
+        }
 
-        // use these in development
-        echo $this->Html->tag('link', null, array('rel' => 'stylesheet/less', 'text' => 'text/css', 'href' => 'less/aura.less'));
-        echo $this->Html->tag('link', null, array('rel' => 'stylesheet/less', 'text' => 'text/css', 'href' => 'less/bootstrap.less'));
-        echo $this->Html->script('bower_components/less/dist/less-1.7.3');
+        echo $this->Html->css('../bower_components/font-awesome/css/font-awesome');
 
-        echo $this->Html->script('bower_components/jquery/dist/jquery');
-        echo $this->Html->script('bower_components/bootstrap/dist/js/bootstrap');
+        echo $this->Html->script('../bower_components/jquery/dist/jquery');
+        echo $this->Html->script('../bower_components/bootstrap/dist/js/bootstrap');
         echo $this->Html->script('holder');
 
 		echo $this->fetch('meta');
@@ -48,28 +46,31 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 </head>
 <body>
 
-<header role="banner">
-    <div class="container">
+<header role="banner"<?php if(!$style['full_span']) echo ' class="container"';?>>
+    <div<?php if($style['full_span']) echo ' class="container"';?>>
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-12 col-sm-6">
                 <?php
-                if ($has_logo_image)
-                    echo $this->HTML->image('logo.png');
-                else
-                    echo $this->HTML->tag('h1', Configure::read('Client.LegalName'));
+                if (!empty($style['img_logo'])) {
+                    echo $this->Html->image($style['img_logo'], array('alt' => $business['trading_name'], 'class' => 'img-responsive'));
+                } else {
+                    echo $this->Html->tag('h1', $business['trading_name']);
+                }
                 ?>
             </div>
-            <div class="col-xs-6 hidden-xs">
-                <div class="pull-right">
-                    <h3><?php echo Configure::read("Client.Phone"); ?></h3>
-                </div>
+            <div class="hidden-xs col-sm-6">
+                <?php
+                if (!empty($style['img_logo_bang'])) {
+                    echo $this->Html->image($style['img_logo_bang'], array('alt' => $business['trading_name'], 'class' => 'img-responsive pull-right'));
+                }
+                ?>
             </div>
         </div>
     </div>
 </header>
 
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-inverse clearfix <?php if(!$style['full_span']) echo ' container';?>" role="navigation">
+    <div<?php if($style['full_span']) echo ' class="container"';?>>
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -82,13 +83,22 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="header-navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="samples">Samples</a></li>
-                <li><a href="services">Services</a></li>
-                <li><a href="about">About</a></li>
-                <li><a href="location">Location</a></li>
-                <li><a href="contact">Contact</a></li>
+                <li <?php if ($page == 'home') echo ' class="active"'?>><a href="/">Home</a></li>
+                <li <?php if ($page == 'sample') echo ' class="active"'?>>
+                    <?php echo $this->Html->link('Samples', array('controller' => 'sample')); ?>
+                </li>
+                <li <?php if ($page == 'service') echo ' class="active"'?>>
+                    <?php echo $this->Html->link('Services', array('controller' => 'service')); ?>
+                </li>
+                <li <?php if ($page == 'about') echo ' class="active"'?>><a href="about">About</a></li>
+                <li <?php if ($page == 'location') echo ' class="active"'?>><a href="location">Location</a></li>
+                <li <?php if ($page == 'contact') echo ' class="active"'?>><a href="contact">Contact</a></li>
             </ul>
+            <?php if (Configure::read('debug')) { ?>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a class="pull-right" href="admin">Admin</a></li>
+              </ul>
+            <?php } ?>
         </div>
         <!-- /.navbar-collapse -->
 
@@ -97,51 +107,75 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 <?php echo $this->fetch('content'); ?>
 
-<div class="footer-section">
-
-    <div class="container">
-
+<section class="quick_links<?php if(!$style['full_span']) echo ' container';?>">
+    <div<?php if($style['full_span']) echo ' class="container"';?>>
         <div class="row">
-            <div class="col-lg-12">
-<!--                <div class="col-sm-4">-->
-<!--                    --><?php //include $page_components["FOOTER"][$layout["footer"][0]] ?>
-<!--                </div>-->
-<!--                <div class="col-sm-4">-->
-<!--                    --><?php //include $page_components["FOOTER"][$layout["footer"][1]] ?>
-<!--                </div>-->
-<!--                <div class="col-sm-4">-->
-<!--                    --><?php //include $page_components["FOOTER"][$layout["footer"][2]] ?>
-<!--                </div>-->
+            <div class="col-xs-6">
+                <address>
+                    <strong><?php echo $business['trading_name']; ?></strong><br>
+                    <?php echo $business['address_street1']; ?><br>
+                    <?php echo $business['address_suburb'] . ', ' .
+                        $business['address_state'] . ' ' .
+                        $business['address_postcode']; ?><br>
+                    <abbr title="Phone">P:</abbr> <?php echo $business['phone']; ?>
+                </address>
+            </div>
+
+            <div class="col-xs-6 text-right">
+                <strong>Offers + Updates</strong>
+                <ul class="list-unstyled">
+                    <?php if (!empty($business['social_plus'])) { ?>
+                    <li>
+                        <i class="fa fa-google-plus"></i>
+                        <a href="http://plus.google.com/+<?php echo $business['social_plus']; ?>/">
+                            +<?php echo $business['social_plus']; ?>
+                        </a>
+                    </li>
+                    <?php } ?>
+                    <?php if (!empty($business['social_facebook'])) { ?>
+                    <li>
+                        <i class="fa fa-facebook"></i>
+                        <a href="http://www.facebook.com/<?php echo $business['social_facebook']; ?>/">
+                            <?php echo $business['social_facebook']; ?>
+                        </a>
+                    </li>
+                    <?php } ?>
+                    <?php if (!empty($business['social_twitter'])) { ?>
+                    <li>
+                        <i class="fa fa-twitter"></i>
+                        <a href="http://www.twitter.com/<?php echo $business['social_twitter']; ?>/">
+                            @<?php echo $business['social_twitter']; ?>
+                        </a>
+                    </li>
+                    <?php } ?>
+                </ul>
             </div>
         </div>
-
     </div>
+</section>
 
-</div>
-<div class="sitemap">
-    <div class="container">
+<footer<?php if($style['full_span']) echo ' class="container"';?>>
+    <div<?php if(!$style['full_span']) echo ' class="container"';?>>
         <div class="row">
-            <div class="col-lg-12">
-                <div class="col-xs-9">
-                    &copy; 2014 <?php echo Configure::read("Client.LegalName"); ?>. All rights reserved.</br>
-                    <a href="#">Terms of Service</a> |
-                    <a href="#">Privacy &amp; Security</a> |
-                    <a href="#">Sitemap</a>
-                </div>
-                <div class="col-xs-3">
-                    <!-- Translate Plugin  ================================================== -->
-                    <div class="muted pull-right" id="google_translate_element"></div>
-                    <script type="text/javascript">
-                        function googleTranslateElementInit() {
-                            new google.translate.TranslateElement({pageLanguage: 'en', gaTrack: true, gaId: 'UA-46169315-1'}, 'google_translate_element');
-                        }
-                    </script>
-                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                </div>
+            <div class="col-xs-9">
+                &copy; 2014 <?php echo Configure::read("Client.LegalName"); ?>. All rights reserved.</br>
+                <a href="#">Terms of Service</a> |
+                <a href="#">Privacy &amp; Security</a> |
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="col-xs-3">
+                <!-- Translate Plugin  ================================================== -->
+                <div class="muted pull-right" id="google_translate_element"></div>
+                <script type="text/javascript">
+                    function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({pageLanguage: 'en', gaTrack: true, gaId: 'UA-46169315-1'}, 'google_translate_element');
+                    }
+                </script>
+                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
             </div>
         </div>
     </div>
-</div>
+</footer>
 
 </body>
 </html>
