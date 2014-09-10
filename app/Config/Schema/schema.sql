@@ -1,25 +1,25 @@
 
 
-DROP TABLE IF EXISTS `cakephp`.`abouts`;
-DROP TABLE IF EXISTS `cakephp`.`businesses`;
-DROP TABLE IF EXISTS `cakephp`.`contacts`;
-DROP TABLE IF EXISTS `cakephp`.`contents`;
-DROP TABLE IF EXISTS `cakephp`.`homes`;
-DROP TABLE IF EXISTS `cakephp`.`samples`;
-DROP TABLE IF EXISTS `cakephp`.`service_styles`;
-DROP TABLE IF EXISTS `cakephp`.`services`;
-DROP TABLE IF EXISTS `cakephp`.`styles`;
-DROP TABLE IF EXISTS `cakephp`.`widgets`;
+DROP TABLE IF EXISTS `abouts`;
+DROP TABLE IF EXISTS `businesses`;
+DROP TABLE IF EXISTS `contacts`;
+DROP TABLE IF EXISTS `contents`;
+DROP TABLE IF EXISTS `homes`;
+DROP TABLE IF EXISTS `samples`;
+DROP TABLE IF EXISTS `service_styles`;
+DROP TABLE IF EXISTS `services`;
+DROP TABLE IF EXISTS `styles`;
+DROP TABLE IF EXISTS `widgets`;
 
 
-CREATE TABLE `cakephp`.`abouts` (
+CREATE TABLE `abouts` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`text` varchar(1023) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
 	`image` varchar(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,	PRIMARY KEY  (`id`)) 	DEFAULT CHARSET=latin1,
 	COLLATE=latin1_swedish_ci,
 	ENGINE=InnoDB;
 
-CREATE TABLE `cakephp`.`businesses` (
+CREATE TABLE `businesses` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`trading_name` varchar(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
 	`abn` varchar(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE `cakephp`.`businesses` (
 	COLLATE=latin1_swedish_ci,
 	ENGINE=InnoDB;
 
-CREATE TABLE `cakephp`.`contacts` (
+CREATE TABLE `contacts` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`host` varchar(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT 'ssl://smtp.gmail.com',
 	`port` int(11) DEFAULT 465,
@@ -49,7 +49,7 @@ CREATE TABLE `cakephp`.`contacts` (
 	COLLATE=latin1_swedish_ci,
 	ENGINE=InnoDB;
 
-CREATE TABLE `cakephp`.`contents` (
+CREATE TABLE `contents` (
 	`business_id` int(11) NOT NULL,
 	`id` varchar(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
 	`enabled` int(11) DEFAULT 1 NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE `cakephp`.`contents` (
 	COLLATE=latin1_swedish_ci,
 	ENGINE=InnoDB;
 
-CREATE TABLE `cakephp`.`homes` (
+CREATE TABLE `homes` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`slogan` varchar(1023) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT 'What would you tell your customers in one line?',
 	`cover` varchar(4095) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE `cakephp`.`homes` (
 	COLLATE=latin1_swedish_ci,
 	ENGINE=InnoDB;
 
-CREATE TABLE `cakephp`.`samples` (
+CREATE TABLE `samples` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`business_id` int(11) NOT NULL,
 	`image` varchar(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
@@ -75,13 +75,13 @@ CREATE TABLE `cakephp`.`samples` (
 	COLLATE=latin1_swedish_ci,
 	ENGINE=InnoDB;
 
-CREATE TABLE `cakephp`.`service_styles` (
+CREATE TABLE `service_styles` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`per_row` int(11) DEFAULT 1 NOT NULL,	PRIMARY KEY  (`id`)) 	DEFAULT CHARSET=latin1,
 	COLLATE=latin1_swedish_ci,
 	ENGINE=InnoDB;
 
-CREATE TABLE `cakephp`.`services` (
+CREATE TABLE `services` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`business_id` int(11) NOT NULL,
 	`image` varchar(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
@@ -92,7 +92,7 @@ CREATE TABLE `cakephp`.`services` (
 	COLLATE=latin1_swedish_ci,
 	ENGINE=InnoDB;
 
-CREATE TABLE `cakephp`.`styles` (
+CREATE TABLE `styles` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`brand_primary` varchar(6) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT '428bca' NOT NULL,
 	`brand_success` varchar(6) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT '5cb85c' NOT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE `cakephp`.`styles` (
 	COLLATE=latin1_swedish_ci,
 	ENGINE=InnoDB;
 
-CREATE TABLE `cakephp`.`widgets` (
+CREATE TABLE `widgets` (
 	`business_id` int(11) NOT NULL,
 	`id` int(11) NOT NULL,
 	`image` varchar(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
