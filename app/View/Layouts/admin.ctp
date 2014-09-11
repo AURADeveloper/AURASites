@@ -47,39 +47,48 @@
     echo $this->fetch('css');
     echo $this->fetch('script');
     ?>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,400italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <header>
-    <div class="container">
-        <?php echo $this->Html->image('logo.png', array('class', 'inline-image')); ?>
-        <h1>Site Builder</h1>
-    </div>
+    <?php echo $this->Html->image('logo.png', array('class', 'inline-image')); ?>
+    <h1>Site Builder</h1>
 </header>
-<div class="container">
-    <div class="row">
-        <nav id="nav" class="col-xs-3 col-sm-2">
-            <h1>General</h1>
-            <ul>
-                <li><?php echo $this->Html->link('Details', array('admin' => true, 'controller' => 'business', 'action' => 'edit')); ?></li>
-                <li><?php echo $this->Html->link('Branding', array('admin' => true, 'controller' => 'style', 'action' => 'edit')); ?></li>
-                <li><?php echo $this->Html->link('Contact', array('admin' => true, 'controller' => 'contact', 'action' => 'edit')); ?></li>
-            </ul>
-            <h1>Content</h1>
-            <ul>
-                <li><?php echo $this->Html->link('Home', array('admin' => true, 'controller' => 'home', 'action' => 'index')); ?></li>
-                <li><?php echo $this->Html->link('Sample', array('admin' => true, 'controller' => 'sample', 'action' => 'edit')); ?></li>
-                <li><?php echo $this->Html->link('Service', array('admin' => true, 'controller' => 'service', 'action' => 'index')); ?></li>
-                <li><?php echo $this->Html->link('About', array('admin' => true, 'controller' => 'about', 'action' => 'edit')); ?></li>
-            </ul>
-        </nav>
-        <main id="main" class="col-xs-9 col-sm-10">
-            <div class="row">
-                <div class="col-lg-12">
-                    <?php echo $this->fetch('content'); ?>
-                </div>
-            </div>
-        </main>
-    </div>
-</div>
+<nav>
+  <ul>
+    <li><i class="fa fa-bars"></i> Dashboard
+      <ul>
+        <li><i class="fa"></i> <?php echo $this->Html->link('Overview', array('admin' => true, 'controller' => 'dashboard')); ?></li>
+      </ul>
+    </li>
+    <li><i class="fa fa-briefcase"></i> Your Business
+      <ul>
+        <li><i class="fa"></i> <?php echo $this->Html->link('Details', array('admin' => true, 'controller' => 'business', 'action' => 'edit')); ?></li>
+        <li><i class="fa"></i> <?php echo $this->Html->link('Branding', array('admin' => true, 'controller' => 'style', 'action' => 'edit')); ?></li>
+        <li><i class="fa"></i> <?php echo $this->Html->link('Contact', array('admin' => true, 'controller' => 'contact', 'action' => 'edit')); ?></li>
+      </ul>
+    </li>
+    <li><i class="fa fa-paint-brush"></i> Style
+      <ul>
+        <li><i class="fa"></i> <a href="">Logos</a></li>
+        <li><i class="fa"></i> <a href="">Colours</a></li>
+        <li><i class="fa"></i> <a href="">Elements</a></li>
+      </ul>
+    </li>
+    <li><i class="fa fa-sitemap"></i> Site Content
+      <ul>
+        <li><i class="fa"></i> <?php echo $this->Html->link('Home', array('admin' => true, 'controller' => 'home', 'action' => 'index')); ?></li>
+        <li><i class="fa"></i> <?php echo $this->Html->link('Sample', array('admin' => true, 'controller' => 'sample', 'action' => 'edit')); ?></li>
+        <li><i class="fa"></i> <?php echo $this->Html->link('Service', array('admin' => true, 'controller' => 'service', 'action' => 'index')); ?></li>
+        <li><i class="fa"></i> <?php echo $this->Html->link('About', array('admin' => true, 'controller' => 'about', 'action' => 'edit')); ?></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<main>
+  <div>
+    <?php echo $this->fetch('content'); ?>
+  </div>
+</main>
 </body>
 </html>
