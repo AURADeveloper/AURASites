@@ -53,6 +53,17 @@
 <header>
     <?php echo $this->Html->image('logo.png', array('class', 'inline-image')); ?>
     <h1>Site Builder</h1>
+    <div class="user-widget pull-right">
+      <?php echo $this->Html->image($user['User']['picture']); ?>
+      <div class="user-meta">
+        <div class="user-name"><?php echo $user['User']['name']; ?></div>
+        <div class="user-email"><?php echo $user['User']['email']; ?></div>
+        <div class="logout">
+          <?php echo $this->Html->link('Logout',
+              array('controller' => 'user', 'action' => 'logout', 'admin' => false)); ?>
+        </div>
+      </div>
+    </div>
 </header>
 <nav>
   <ul>

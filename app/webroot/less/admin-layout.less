@@ -113,9 +113,36 @@ form {
   }
 }
 
-.dl-horizontal {
+.user-widget {
+  padding: 3px;
+  background-color: @btn-default-bg;
+  border: 1px solid darken(@btn-default-border, 10%);
+  overflow: hidden;
 
-  dt {
+  border-radius: 3px;
 
+  img {
+    vertical-align: top;
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    display: inline-block;
+    padding-right: 3px;
   }
+
+  .user-meta {
+    display: inline-block;
+
+    .user-name  {
+      font-weight: bold;
+    }
+    .user-email {
+
+    }
+    .logout {
+      text-align: right;
+    }
+  }
+
+
 }

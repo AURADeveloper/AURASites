@@ -385,4 +385,16 @@ Cache::config('_cake_model_', array(
 	'duration' => $duration
 ));
 
+/**
+ * Defines Google OAuth parameters
+ */
+Configure::write('Google.ApplicationName', 'aura-sites');
+Configure::write('Google.ClientId', '35857895478-sub83pop4a4ckan6tqk2ff8l8q0k2431.apps.googleusercontent.com');
+Configure::write('Google.ClientSecret', 'sxE2dxVC9QQjSYu0nXyHPz4L');
+Configure::write('Google.RedirectUrl', 'http://localhost/user/login'); // TODO: configure debug and production
+
+/**
+ * Defines the client primary key, used to identify client on all SQL records.
+ * TODO: Move this to an external properties file
+ */
 Configure::write('Client.id', 1);

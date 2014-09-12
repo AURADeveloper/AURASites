@@ -4,8 +4,6 @@ App::uses('CakeEmail', 'Network/Email');
 
 class ContactController extends AppController {
 
-    public $components = array('RequestHandler');
-
     /**
      * When the controller is posted to on the index, it means the user is
      * attempting to send an email via the contact form. Otherwise, the form

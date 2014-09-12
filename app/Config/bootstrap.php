@@ -107,4 +107,7 @@ CakeLog::config('error', array(
 	'file' => 'error',
 ));
 
+/** Load the composer plugin. */
 CakePlugin::load('Composer', array('bootstrap' => true));
+/** Load the DebugKit plugin. */
+CakePlugin::load('DebugKit');
