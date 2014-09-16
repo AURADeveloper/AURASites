@@ -51,6 +51,7 @@
 </head>
 <body>
 <main class="container">
+  <?php echo $this->Session->flash(); ?>
   <?php echo $this->fetch('content'); ?>
 </main>
 </body>

@@ -2,4 +2,6 @@
 
 class User extends AppModel {
 
+
+
 }

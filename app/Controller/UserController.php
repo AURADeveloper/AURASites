@@ -23,6 +23,7 @@ class UserController extends AppController {
     $client->setClientSecret(Configure::read('Google.ClientSecret'));
     $client->setRedirectUri(Configure::read('Google.RedirectUrl'));
     $client->setScopes(array('email', 'profile'));
+    //$client->setAccessType('offline');
 
     // Instantiate the Google OAuth2 Service
     $oauth2 = new Google_Service_Oauth2($client);
@@ -62,6 +63,12 @@ class UserController extends AppController {
 
     // If the user has already registered, nothing else to do. Just redirect to admin dashboard
     if($result > 0) {
+      $access_token = $this->Session->read('access_token');
+      //$refresh_token = json_decode($access_token)->refresh_token;
+      $db_user = $this->User->findById($user['id']);
+      //$db_user['User']['refresh_token'] = $refresh_token;
+      $this->User->save($db_user); // update the refresh token
+      $this->Session->write('user', $db_user);
       $this->redirect(array('controller' => 'dashboard', 'admin' => true));
       return;
     }
@@ -70,6 +77,8 @@ class UserController extends AppController {
     // If not, register them as this is the behaviour for now. Otherwise, deny the request
     $result = $this->User->find('count', array('conditions' => array('client_id' => $this->client_id)));
     if($result == 0) {
+      $access_token = $this->Session->read('access_token');
+      //$refresh_token = json_decode($access_token)->refresh_token;
       $db_user = array('User' => array(
           'id' => $user['id'],
           'client_id' => $this->client_id,
@@ -81,6 +90,7 @@ class UserController extends AppController {
 
       // Save the user into our database
       if ($this->User->save($db_user)) {
+        $this->Session->write('user', $db_user);
         $this->redirect(array('controller' => 'dashboard', 'admin' => true));
         return;
       } else { // There was a problem!
@@ -99,13 +109,24 @@ class UserController extends AppController {
    * Log the user out of AURA Sites.
    */
   public function logout() {
-    // Delete the Cached access token
-    if ($this->Session->read('access_token')) {
-      $this->Session->delete('access_token');
-    }
+//    $client = new Google_Client();
+//    $client->setApplicationName(Configure::read('Google.ApplicationName'));
+//    $client->setClientId(Configure::read('Google.ClientId'));
+//    $client->setClientSecret(Configure::read('Google.ClientSecret'));
+//    $client->setRedirectUri(Configure::read('Google.RedirectUrl'));
+//    $client->setScopes(array('email', 'profile'));
+//
+//    // Delete the Cached access token
+//    if ($this->Session->read('access_token')) {
+//      $client->revokeToken($this->Session->read('access_token'));
+//      $this->Session->delete('access_token');
+//    }
 
-    // Inform the user what just happened
-    $this->Session->setFlash("Your have successfully logged out of AURA Sites.");
+    if ($this->Session->delete('user')) {
+      $this->Session->delete('access_token');
+      // Inform the user what just happened
+      $this->Session->setFlash("Your have successfully logged out of AURA Sites.");
+    }
 
     // Redirect to login
     $this->redirect(array('controller' => 'user', 'action' => 'login'));

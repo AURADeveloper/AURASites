@@ -38,28 +38,12 @@ class AppController extends Controller {
   public function beforeFilter() {
     // Verify user identity for all admin requests:
     if (isset($this->params['admin'])) {
-      $valid_token = false;
-
-      if ($this->Session->read('access_token')) {
-        $client = new Google_Client();
-        $client->setApplicationName(Configure::read('Google.ApplicationName'));
-        $client->setClientId(Configure::read('Google.ClientId'));
-        $client->setClientSecret(Configure::read('Google.ClientSecret'));
-        $client->setAccessToken($this->Session->read('access_token'));
-
-        try {
-          $token_data = $client->verifyIdToken()->getAttributes();
-          $user = $this->User->findById($token_data['payload']['id']);
-          $this->set(compact('user'));
-          $valid_token = true;
-        } catch (Google_Auth_Exception $e) {
-          Debugger::dump($e);
-        }
-      }
-
-      if (!$valid_token && $this->params['controller'] != 'login') {
+      // Does the user have a live session? Any logged in user at this stage would be an admin
+      if (!$this->Session->read('user') && $this->params['controller'] != 'user') {
         $this->redirect(array('controller' => 'user', 'action' => 'login', 'admin' => false));
-        return;
+      } else {
+        $user = $this->Session->read('user');
+        $this->set(compact('user'));
       }
     }
 

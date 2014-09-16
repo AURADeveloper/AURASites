@@ -4,3 +4,16 @@
 @cover-well-bg: @glass-color;
 @cover-well-border: 1px solid #888;
 @cover-image: url('../img/page_banner.jpg');
+
+// Available Body Styles
+#body {
+  .bg-solid {
+    background-image: none;
+  }
+  .bg-gradient(@color) {
+    #gradient.vertical(darken(@color, 10%), @color, 0, 25%);
+  }
+  .bg-texture-hex {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAOCAYAAAA1+Nx+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkMBQ87k349NgAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAABmklEQVQ4y22UT2sUQRDFf69ndrMazRIQhIhGEYx/E0Xx+3+RePCgeBAEPWg2M+VhXy2VzjY01V3T/frVq6oBuAMcAgfAGngFDBEB0DwHoEUE9gtQ2Q/GODfOIXAXWOWBevklcLoHRPVssUnmArhfiKX/JluvPwJjBclzHWh+fwi8NqmMWhFBA2ZJAsIT4AfwNCJmSWNETPYjSWUv2yfAl9iO2XOLlayKtguvP9WQK/MuijPgWYlUVd4bD5RHGnAEvCn7saxlsAPgffegKt5IGZYKS/XbYOfAX2ABTAae7HsMXFa5dtLk2MM+q+UIeOf1ssyFmY/APeBtn9yK07g9BtvnwFdHtYmIK9tNRPwz2T/ABjiJiDmLxMnelWYvzyzpAXBlmfJ7SyupRcRk3yXwSNLQS5SYupV5+AwsS2W0TspFV10nwFnX/Q3YsvKrioiQdAr8BDbJ1OHXce172SffgJWkdTm7kynLbQBWwIe+5Gry9vgzimN3c5bzCAyjG0VmtQa+W9+lE5iAc+nkMPNr+wbgF/DC/7Ip8/sfafpUa/vxMvEAAAAASUVORK5CYII=);
+  }
+}

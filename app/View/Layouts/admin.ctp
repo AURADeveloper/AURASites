@@ -17,53 +17,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <?php echo $this->Html->charset(); ?>
-    <title>
-        <?php echo 'AURA Site Builder : ' . $title_for_layout; ?>
-    </title>
-    <?php
-    echo $this->Html->meta('icon');
+  <?php echo $this->Html->charset(); ?>
+  <title>
+      <?php echo 'AURA Site Builder : ' . $title_for_layout; ?>
+  </title>
+  <?php
+  echo $this->Html->meta('icon');
 
-    if (Configure::read('debug')) {
-        echo $this->Html->css('../less/bootstrap-admin.less?', array('rel' => 'stylesheet/less'));
-        echo $this->Html->css('../less/admin.less?', array('rel' => 'stylesheet/less'));
-        echo $this->Html->script('../bower_components/less/dist/less-1.7.3');
-    } else {
-        echo $this->Html->css('bootstrap-admin');
-        echo $this->Html->css('admin');
-    }
+  if (Configure::read('debug')) {
+      echo $this->Html->css('../less/bootstrap-admin.less?', array('rel' => 'stylesheet/less'));
+      echo $this->Html->css('../less/admin.less?', array('rel' => 'stylesheet/less'));
+      echo $this->Html->script('../bower_components/less/dist/less-1.7.3');
+  } else {
+      echo $this->Html->css('bootstrap-admin');
+      echo $this->Html->css('admin');
+  }
 
-    echo $this->Html->css('../bower_components/font-awesome/css/font-awesome');
+  echo $this->Html->css('../bower_components/font-awesome/css/font-awesome');
 
-    echo $this->Html->script('../bower_components/jquery/dist/jquery');
-    echo $this->Html->script('../bower_components/bootstrap/dist/js/bootstrap');
-    echo $this->Html->script('../bower_components/JSColor/jscolor');
-    echo $this->Html->script('../bower_components/notifyjs/dist/notify');
-    echo $this->Html->script('../bower_components/notifyjs/dist/styles/bootstrap/notify-bootstrap');
-    echo $this->Html->script('holder');
-    echo $this->Html->script('admin');
+  echo $this->Html->script('../bower_components/jquery/dist/jquery');
+  echo $this->Html->script('../bower_components/bootstrap/dist/js/bootstrap');
+  echo $this->Html->script('../bower_components/JSColor/jscolor');
+  echo $this->Html->script('../bower_components/notifyjs/dist/notify');
+  echo $this->Html->script('../bower_components/notifyjs/dist/styles/bootstrap/notify-bootstrap');
+  echo $this->Html->script('holder');
+  echo $this->Html->script('admin');
 
-    echo $this->fetch('meta');
-    echo $this->fetch('css');
-    echo $this->fetch('script');
-    ?>
+  echo $this->fetch('meta');
+  echo $this->fetch('css');
+  echo $this->fetch('script'); ?>
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,400italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <header>
-    <?php echo $this->Html->image('logo.png', array('class', 'inline-image')); ?>
-    <h1>Site Builder</h1>
-    <div class="user-widget pull-right">
-      <?php echo $this->Html->image($user['User']['picture']); ?>
-      <div class="user-meta">
-        <div class="user-name"><?php echo $user['User']['name']; ?></div>
-        <div class="user-email"><?php echo $user['User']['email']; ?></div>
-        <div class="logout">
-          <?php echo $this->Html->link('Logout',
-              array('controller' => 'user', 'action' => 'logout', 'admin' => false)); ?>
-        </div>
+  <?php echo $this->Html->image('logo.png', array('class', 'inline-image')); ?>
+  <h1>Site Builder</h1>
+  <div class="user-widget pull-right">
+    <div class="user-meta">
+<!--      <div class="user-name">--><?php //echo $user['User']['name']; ?><!--</div>-->
+      <div class="user-email"><?php echo $user['User']['email']; ?></div>
+      <div class="logout">
+        <?php echo $this->Html->link('Logout',
+            array('controller' => 'user', 'action' => 'logout', 'admin' => false)); ?>
       </div>
     </div>
+    <?php echo $this->Html->image($user['User']['picture']); ?>
+  </div>
 </header>
 <nav>
   <ul>
@@ -75,15 +74,14 @@
     <li><i class="fa fa-briefcase"></i> Your Business
       <ul>
         <li><i class="fa"></i> <?php echo $this->Html->link('Details', array('admin' => true, 'controller' => 'business', 'action' => 'edit')); ?></li>
-        <li><i class="fa"></i> <?php echo $this->Html->link('Branding', array('admin' => true, 'controller' => 'style', 'action' => 'edit')); ?></li>
         <li><i class="fa"></i> <?php echo $this->Html->link('Contact', array('admin' => true, 'controller' => 'contact', 'action' => 'edit')); ?></li>
       </ul>
     </li>
     <li><i class="fa fa-paint-brush"></i> Style
       <ul>
-        <li><i class="fa"></i> <a href="">Logos</a></li>
-        <li><i class="fa"></i> <a href="">Colours</a></li>
-        <li><i class="fa"></i> <a href="">Elements</a></li>
+        <li><i class="fa"></i> <?php echo $this->Html->link('Logo', array('admin' => true, 'controller' => 'style', 'action' => 'logo')); ?></li>
+        <li><i class="fa"></i> <?php echo $this->Html->link('Colour', array('admin' => true, 'controller' => 'style', 'action' => 'colour')); ?></li>
+        <li><i class="fa"></i> <?php echo $this->Html->link('Elements', array('admin' => true, 'controller' => 'style', 'action' => 'elements')); ?></li>
       </ul>
     </li>
     <li><i class="fa fa-sitemap"></i> Site Content
@@ -98,6 +96,7 @@
 </nav>
 <main>
   <div>
+    <?php echo $this->Session->flash(); ?>
     <?php echo $this->fetch('content'); ?>
   </div>
 </main>
