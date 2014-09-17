@@ -1,0 +1,80 @@
+
+/*
+  Override the some aspects of the btn class, creating our own look and feel.
+*/
+.btn {
+  /* Space characters slightly. */
+  letter-spacing: 0.05em;
+  /* Add some inset shadow to create a rounded feel. */
+  box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.5);
+
+  &:active {
+    /* Darken in inset shadow to make it look depressed. */
+    box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.25);
+    /* Drops the button one pixel when pressed. */
+    position: relative;
+    top: 1px;
+  }
+
+  /*
+    The default button.
+  */
+  &.btn-default {
+    /* The info button is white, inverse the inner shadow slightly. */
+    box-shadow: inset 0px 1px 0px 0px rgba(red(@btn-default-border),green(@btn-default-border),blue(@btn-default-border),0.125);
+
+    #gradient.vertical(@btn-default-bg, darken(@btn-default-bg, 10%), 5%, 100%);
+
+    &:hover {
+      #gradient.vertical(darken(@btn-default-bg, 10%), @btn-default-bg, 5%, 100%);
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  &.btn-primary {
+    #gradient.vertical(@brand-primary, darken(@brand-primary, 10%), 5%, 100%);
+    &:hover { #gradient.vertical(darken(@brand-primary, 10%), @brand-primary, 5%, 100%); }
+  }
+
+  &.btn-success {
+    #gradient.vertical(@brand-success, darken(@brand-success, 10%), 5%, 100%);
+    &:hover { #gradient.vertical(darken(@brand-success, 10%), @brand-success, 5%, 100%); }
+  }
+
+  /*
+    The info button.
+  */
+  &.btn-info {
+    #gradient.vertical(@brand-info, darken(@brand-info, 10%), 5%, 100%);
+
+    &:hover {
+      #gradient.vertical(darken(@brand-info, 10%), @brand-info, 5%, 100%);
+    }
+  }
+
+  /*
+    The warning button.
+  */
+  &.btn-warning {
+    #gradient.vertical(@brand-warning, darken(@brand-warning, 10%), 5%, 100%);
+
+    &:hover {
+      #gradient.vertical(darken(@brand-warning, 10%), @brand-warning, 5%, 100%);
+    }
+  }
+
+  /*
+    The danger button.
+  */
+  &.btn-danger {
+    #gradient.vertical(@brand-danger, darken(@brand-danger, 10%), 5%, 100%);
+
+    &:hover {
+      #gradient.vertical(darken(@brand-danger, 10%), @brand-danger, 5%, 100%);
+    }
+  }
+
+}

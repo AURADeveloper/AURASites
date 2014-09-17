@@ -1,7 +1,12 @@
-<?php echo $this->Session->flash(); ?>
+<h1 class="page-header">
+  Edit your Business Logo
+</h1>
+<p class="help-block">
+  Upload your business logo, this will appear in the header on every page.
+</p>
 <div class="row">
   <div class="col-lg-12">
-    <legend>Brand Logos</legend>
+    <legend class="col-sm-offset-2 col-sm-10">Business Logo</legend>
     <?php
     echo $this->Form->create($bootstrap_form_options);
 
@@ -26,7 +31,12 @@
     echo '</div>';
     echo '</div>';
     echo '</div>';
-
+    ?>
+    <legend class="col-sm-offset-2 col-sm-10">Secondary Logo</legend>
+    <p class="col-sm-offset-2 col-sm-10 help-block">
+      If you have a second logo, upload it here. It will appear on the right hand side of the header.
+    </p>
+    <?php
     echo '<div class="form-group">';
     echo '<div class="col-sm-offset-2 col-sm-10">';
     $logoBangSrc = $this->request->data['Style']['img_logo_bang'];
@@ -51,7 +61,7 @@
 
     echo '<div class="form-group">';
     echo '<div class="col-sm-offset-2 col-sm-10">';
-    echo $this->Form->button('Update', array('type' => 'submit', 'class' => 'btn btn-default'));
+    echo $this->Form->button('Update', array('type' => 'submit', 'class' => 'btn btn-primary'));
     echo '</div>';
     echo '</div>';
 

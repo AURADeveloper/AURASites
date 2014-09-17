@@ -1,4 +1,4 @@
-<div class="well portal">
+<div class="portal">
     <?php if (isset($this->params['admin'])): ?>
     <div class="options">
         <div>

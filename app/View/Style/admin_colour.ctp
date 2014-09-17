@@ -26,8 +26,8 @@
 //    echo $this->Form->input('brand_danger');
 
     echo '<legend class="col-sm-offset-2 col-sm-10">Background Colour</legend>';
-    echo $this->Form->input('background');
-    echo $this->Form->input('background_texture', array('type' => 'select', 'options' => $background_options));
+    echo $this->Form->input('background_color');
+    echo $this->Form->input('background_style', array('type' => 'select', 'options' => $background_options));
 
     echo '<div class="form-group">';
     echo '<div class="col-sm-offset-2 col-sm-10">';

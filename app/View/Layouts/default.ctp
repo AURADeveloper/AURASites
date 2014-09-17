@@ -43,6 +43,11 @@
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+  <!-- TODO switch this -->
+  <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Francois+One' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
 
@@ -70,6 +75,7 @@
 </header>
 
 <nav class="navbar navbar-inverse clearfix <?php if(!$style['full_span']) echo ' container';?>" role="navigation">
+  <div>
     <div<?php if($style['full_span']) echo ' class="container"';?>>
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-navbar-collapse">
@@ -103,6 +109,7 @@
         <!-- /.navbar-collapse -->
 
     </div>
+  </div>
 </nav>
 
 <?php echo $this->fetch('content'); ?>
