@@ -34,14 +34,17 @@
   }
 
   echo $this->Html->css('../bower_components/font-awesome/css/font-awesome');
+  echo $this->Html->css('../bower_components/classygradient/css/jquery.colorpicker');
+  echo $this->Html->css('../bower_components/classygradient/css/jquery.classygradient');
 
   echo $this->Html->script('../bower_components/jquery/dist/jquery');
+  echo $this->Html->script('../bower_components/jquery-ui/jquery-ui');
+  echo $this->Html->script('../bower_components/classygradient/js/jquery.colorpicker');
+  echo $this->Html->script('../bower_components/classygradient/js/jquery.classygradient');
   echo $this->Html->script('../bower_components/bootstrap/dist/js/bootstrap');
-  echo $this->Html->script('../bower_components/JSColor/jscolor');
   echo $this->Html->script('../bower_components/notifyjs/dist/notify');
   echo $this->Html->script('../bower_components/notifyjs/dist/styles/bootstrap/notify-bootstrap');
   echo $this->Html->script('holder');
-  echo $this->Html->script('admin');
 
   echo $this->fetch('meta');
   echo $this->fetch('css');
@@ -79,9 +82,9 @@
     </li>
     <li><i class="fa fa-paint-brush"></i> Style
       <ul>
-        <li><i class="fa"></i> <?php echo $this->Html->link('Logo', array('admin' => true, 'controller' => 'style', 'action' => 'logo')); ?></li>
-        <li><i class="fa"></i> <?php echo $this->Html->link('Colour', array('admin' => true, 'controller' => 'style', 'action' => 'colour')); ?></li>
-        <li><i class="fa"></i> <?php echo $this->Html->link('Elements', array('admin' => true, 'controller' => 'style', 'action' => 'elements')); ?></li>
+        <li><i class="fa"></i> <?php echo $this->Html->link('Layout', array('admin' => true, 'controller' => 'layout', 'action' => 'index')); ?></li>
+        <li><i class="fa"></i> <?php echo $this->Html->link('Images', array('admin' => true, 'controller' => 'style', 'action' => 'logo')); ?></li>
+        <li><i class="fa"></i> <?php echo $this->Html->link('Colours', array('admin' => true, 'controller' => 'style', 'action' => 'colour')); ?></li>
       </ul>
     </li>
     <li><i class="fa fa-sitemap"></i> Site Content
@@ -96,9 +99,11 @@
 </nav>
 <main>
   <div>
-    <?php echo $this->Session->flash(); ?>
+    <?php echo $this->Session->flash('flash', array('element' => 'notify_success')); ?>
     <?php echo $this->fetch('content'); ?>
   </div>
 </main>
+<?php echo $this->Js->writeBuffer(); ?>
+<?php echo $this->Html->script('admin'); ?>
 </body>
 </html>

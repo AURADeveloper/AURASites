@@ -2,6 +2,8 @@
 
 class StyleController extends AppController {
 
+  public $helper = array('StylePicker');
+
   public function admin_index() {
     $this->request->data = $this->Style->findById($this->client_id);
   }
@@ -41,6 +43,11 @@ class StyleController extends AppController {
     $custom_fonts = $this->Style->fonts;
     $this->set(compact('header_styles', 'nav_styles', 'button_styles', 'custom_fonts'));
     $this->admin_edit();
+  }
+
+  public function beforeRender() {
+    parent::beforeRender();
+    $this->helpers['StylePicker'] = $this->getStylePickerSettings();
   }
 
 }

@@ -17,7 +17,67 @@ class HomeController extends AppController {
         $portals = $result['Widget'];
         $style = $result['Style'];
 
-        $this->set(compact('home', 'portals', 'style'));
+        $layout = array(
+            'header' => array(
+                'element' => 'layout/header_center',
+                'style' => array(
+                    'background' => array(
+                        'color' => '@brand-primary',
+                        'gradient' => array(
+                            'start_color' => '@brand-primary',
+                            'end_color' => 'darken(@brand-primary, 10%)',
+                            'start_pos' => '0%',
+                            'end_pos' => '100%'
+                        ),
+                        'image' => array(
+                            'src' => 'upload/bg.png',
+                            'repeat' => 'repeat-x',
+                            'position' => 'center'
+                        )
+                    )
+                ),
+                'widgets' => array(
+                    array(
+                        'element' => 'widget/image',
+                        'params' => array(
+                            'image_pos' => '',
+                            'image_style' => '',
+                            'image_src' => 'logo.png',
+                            'image_alt' => 'AURA Site Builder'
+                        )
+                    ),
+                    array(
+                        'element' => 'widget/image',
+                        'params' => array(
+                            'image_pos' => '',
+                            'image_style' => '',
+                            'image_src' => 'logo-black.png',
+                            'image_alt' => 'Bang'
+                        )
+                    )
+                )
+            ),
+            'nav' => array(
+                'element' => 'layout/navigation_basic',
+                'style' => array(
+                    'class' => 'navbar-collapse'
+                ),
+                'widgets' => array(
+                    array(
+                        'element' => 'widget/navigation',
+                        'params' => array(
+                            'links' => array(
+                                'Home' => 'home',
+                                'Samples' => 'samples',
+                                'Services' => 'services'
+                            )
+                        )
+                    )
+                )
+            )
+        );
+
+        $this->set(compact('home', 'portals', 'style', 'layout'));
     }
 
     /**

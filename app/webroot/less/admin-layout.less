@@ -105,11 +105,22 @@ form {
   img {
     margin-bottom: 5px;
     margin-left: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  dt {
+    text-align: left;
+    width: 100px;
+  }
+  dd {
+    margin-left: 120px;
   }
   dl {
-    border-top: 1px solid #eee;
-    #gradient.vertical(#f7f7f7, #fff, 5%, 25%);
+    //border-top: 1px solid #eee;
+    //#gradient.vertical(#f7f7f7, #fff, 5%, 25%);
     padding: 5px;
+    margin-bottom: 0;
+
   }
 }
 
@@ -150,4 +161,19 @@ form {
   }
 
 
+}
+
+.pretty-panel {
+  border: 1px solid #ccc;
+  background-color: #fafafa;
+  border-radius: 3px;
+//  box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.page-header {
+ background-color: darken(@brand-primary, 10%);
+  padding: 10px;
+  color: #fff;
 }

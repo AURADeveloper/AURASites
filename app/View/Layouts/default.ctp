@@ -1,19 +1,3 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
-?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
@@ -24,20 +8,20 @@
 	<?php
 		echo $this->Html->meta('icon');
 
-        if (Configure::read('debug')) {
-            echo $this->Html->css('../less/bootstrap-client.less?', array('rel' => 'stylesheet/less'));
-            echo $this->Html->css('../less/client.less?', array('rel' => 'stylesheet/less'));
-            echo $this->Html->script('../bower_components/less/dist/less-1.7.3');
-        } else {
-            echo $this->Html->css('bootstrap-client');
-            echo $this->Html->css('client');
-        }
+    if (Configure::read('debug')) {
+        echo $this->Html->css('../less/bootstrap-client.less?', array('rel' => 'stylesheet/less'));
+        echo $this->Html->css('../less/client.less?', array('rel' => 'stylesheet/less'));
+        echo $this->Html->script('../bower_components/less/dist/less-1.7.3');
+    } else {
+        echo $this->Html->css('bootstrap-client');
+        echo $this->Html->css('client');
+    }
 
-        echo $this->Html->css('../bower_components/font-awesome/css/font-awesome');
+    echo $this->Html->css('../bower_components/font-awesome/css/font-awesome');
 
-        echo $this->Html->script('../bower_components/jquery/dist/jquery');
-        echo $this->Html->script('../bower_components/bootstrap/dist/js/bootstrap');
-        echo $this->Html->script('holder');
+    echo $this->Html->script('../bower_components/jquery/dist/jquery');
+    echo $this->Html->script('../bower_components/bootstrap/dist/js/bootstrap');
+    echo $this->Html->script('holder');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -52,26 +36,9 @@
 <body>
 
 <header role="banner"<?php if(!$style['full_span']) echo ' class="container"';?>>
-    <div<?php if($style['full_span']) echo ' class="container"';?>>
-        <div class="row">
-            <div class="col-xs-12 col-sm-6">
-                <?php
-                if (!empty($style['img_logo'])) {
-                    echo $this->Html->image($style['img_logo'], array('alt' => $business['trading_name'], 'class' => 'img-responsive'));
-                } else {
-                    echo $this->Html->tag('h1', $business['trading_name']);
-                }
-                ?>
-            </div>
-            <div class="hidden-xs col-sm-6">
-                <?php
-                if (!empty($style['img_logo_bang'])) {
-                    echo $this->Html->image($style['img_logo_bang'], array('alt' => $business['trading_name'], 'class' => 'img-responsive pull-right'));
-                }
-                ?>
-            </div>
-        </div>
-    </div>
+  <div<?php if($style['full_span']) echo ' class="container"';?>>
+    <?php echo $this->element($layout['header']['element'], array('widgets' => $layout['header']['widgets'])); ?>
+  </div>
 </header>
 
 <nav class="navbar navbar-inverse clearfix <?php if(!$style['full_span']) echo ' container';?>" role="navigation">
@@ -112,7 +79,9 @@
   </div>
 </nav>
 
-<?php echo $this->fetch('content'); ?>
+<main>
+  <?php echo $this->fetch('content'); ?>
+</main>
 
 <section class="quick_links<?php if(!$style['full_span']) echo ' container';?>">
     <div<?php if($style['full_span']) echo ' class="container"';?>>

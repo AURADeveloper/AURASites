@@ -1,5 +1,4 @@
 <h1 class="page-header">Edit Your Business Details</h1>
-<?php echo $this->Form->create($bootstrap_form_options); ?>
 <p class="help-block">
   Keep your business details up to date. Updating them here with automatically update your website without having
   to do any further.
@@ -7,6 +6,7 @@
 <div class="row">
   <div class="col-sm-12">
     <?php
+    echo $this->Form->create($bootstrap_form_options);
     echo '<legend class="col-sm-offset-2 col-sm-10">Basic Info</legend>';
     echo $this->Form->input('trading_name');
     echo $this->Form->input('abn');
@@ -27,7 +27,7 @@
 
     echo '<div class="form-group">';
     echo '<div class="col-sm-offset-2 col-sm-10">';
-    echo $this->Form->button('Update', array('type' => 'submit', 'class' => 'btn btn-default'));
+    echo $this->Form->button('Update', array('type' => 'submit', 'class' => 'btn btn-primary'));
     echo '</div>';
     echo '</div>';
 

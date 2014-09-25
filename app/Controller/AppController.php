@@ -33,7 +33,8 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 
   public $components = array('Session', 'RequestHandler', 'DebugKit.Toolbar' => array('panels' => array('history' => false)));
-  public $uses = array('Business', 'User');
+  public $uses = array('Business', 'User', 'Colour');
+  public $helpers = array('Js' => array('Jquery'));
 
   public function beforeFilter() {
     // Verify user identity for all admin requests:
@@ -87,6 +88,26 @@ class AppController extends Controller {
 
       $this->set(compact('business', 'style', 'page'));
     }
+  }
+
+  protected function getStylePickerSettings() {
+    // Pull all user defined colours from the DB
+    $colours = $this->Colour->findAllByBusinessId($this->client_id);
+
+    // Populate an array suitable to pass as a select options array
+    foreach ($colours as $colour)
+      $select[$colour['Colour']['id']] = Inflector::humanize($colour['Colour']['label']);
+    $select[0] = 'Custom';
+
+    // Compile all settings into one array
+    $settings = array(
+      'colour' => $colours,
+      'select_bg_colours' => $select,
+      'select_bg_texture' => array('Gradient')
+    );
+
+    // Return it
+    return $settings;
   }
 
 }
